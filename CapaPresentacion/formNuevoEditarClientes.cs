@@ -45,7 +45,7 @@ namespace CapaPresentacion
             }
             else
             {
-                lblEditarNuevo.Text = "Editar";
+                lblEditarNuevo.Text = "Ficha";
                 this.IsNuevo = false;
                 this.IsEditar = true;
                 this.MostrarCliente(this.IdCliente);

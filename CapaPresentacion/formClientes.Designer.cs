@@ -117,7 +117,7 @@
             this.botonEditarListado.Name = "botonEditarListado";
             this.botonEditarListado.Size = new System.Drawing.Size(75, 23);
             this.botonEditarListado.TabIndex = 14;
-            this.botonEditarListado.Text = "Editar";
+            this.botonEditarListado.Text = "Ver ficha";
             this.botonEditarListado.UseVisualStyleBackColor = true;
             this.botonEditarListado.Click += new System.EventHandler(this.botonEditarListado_Click_1);
             // 

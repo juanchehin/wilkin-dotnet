@@ -43,28 +43,32 @@ namespace CapaPresentacion
 
         private void btnSiguiente_Click(object sender, EventArgs e)
         {
-            this.desde += 15;
-
-            if(this.desde >= Convert.ToInt32(lblTotalHistorico.Text))
+            if ((desde + 20) >= Convert.ToInt32(totalHistorico))
             {
-                this.desde -= 15;
                 return;
             }
 
-            dameHistoricoClientePaginado(IdCliente, desde);
+            if (desde < 0)
+            {
+                return;
+            }
+
+            this.desde += 20;
+            this.dameHistoricoClientePaginado(IdCliente,this.desde);
+
         }
 
         private void btnAnterior_Click(object sender, EventArgs e)
         {
-            this.desde -= 15;
-
-            if (this.desde < 0)
+            if (desde <= 0)
             {
-                this.desde += 15;
+                this.desde = 0;
                 return;
             }
 
-            dameHistoricoClientePaginado(IdCliente, desde);
+            this.desde -= 20;
+            this.dameHistoricoClientePaginado(IdCliente,this.desde);
+
         }
     }
 }

@@ -24,10 +24,10 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <SupportUrl>https://juanchehin.github.io/CR/</SupportUrl>
-    <ProductName>SisGom</ProductName>
-    <PublisherName>SisGom</PublisherName>
-    <SuiteName>SisGom</SuiteName>
-    <ApplicationRevision>8</ApplicationRevision>
+    <ProductName>Wilkin</ProductName>
+    <PublisherName>Wilkin</PublisherName>
+    <SuiteName>Wilkin</SuiteName>
+    <ApplicationRevision>9</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -89,17 +89,29 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuraciones\formImportacionBD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuraciones\formImportacionBD.Designer.cs">
+      <DependentUpon>formImportacionBD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuraciones\formBackup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuraciones\formBackup.Designer.cs">
+      <DependentUpon>formBackup.cs</DependentUpon>
+    </Compile>
     <Compile Include="formClientes.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="formClientes.Designer.cs">
       <DependentUpon>formClientes.cs</DependentUpon>
     </Compile>
-    <Compile Include="formHistorial.cs">
+    <Compile Include="Configuraciones\formConfiguraciones.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formHistorial.Designer.cs">
-      <DependentUpon>formHistorial.cs</DependentUpon>
+    <Compile Include="Configuraciones\formConfiguraciones.Designer.cs">
+      <DependentUpon>formConfiguraciones.cs</DependentUpon>
     </Compile>
     <Compile Include="formInformacion.cs">
       <SubType>Form</SubType>
@@ -119,19 +131,25 @@
     <Compile Include="formNuevoEditarClientes.Designer.cs">
       <DependentUpon>formNuevoEditarClientes.cs</DependentUpon>
     </Compile>
-    <Compile Include="formNuevoTrabajo.cs">
+    <Compile Include="frmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formNuevoTrabajo.Designer.cs">
-      <DependentUpon>formNuevoTrabajo.cs</DependentUpon>
+    <Compile Include="frmPrincipal.Designer.cs">
+      <DependentUpon>frmPrincipal.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Configuraciones\formImportacionBD.resx">
+      <DependentUpon>formImportacionBD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuraciones\formBackup.resx">
+      <DependentUpon>formBackup.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formClientes.resx">
       <DependentUpon>formClientes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formHistorial.resx">
-      <DependentUpon>formHistorial.cs</DependentUpon>
+    <EmbeddedResource Include="Configuraciones\formConfiguraciones.resx">
+      <DependentUpon>formConfiguraciones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formInformacion.resx">
       <DependentUpon>formInformacion.cs</DependentUpon>
@@ -142,8 +160,8 @@
     <EmbeddedResource Include="formNuevoEditarClientes.resx">
       <DependentUpon>formNuevoEditarClientes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formNuevoTrabajo.resx">
-      <DependentUpon>formNuevoTrabajo.cs</DependentUpon>
+    <EmbeddedResource Include="frmPrincipal.resx">
+      <DependentUpon>frmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -269,19 +287,11 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="logo - copia.ico" />
+    <Content Include="logo.ico" />
     <None Include="Resources\logo1.jpg" />
     <None Include="Resources\lubricant.png" />
     <Content Include="lubricant.ico" />
-    <None Include="Resources\logo2.jpg" />
-    <None Include="Resources\LogoConFondo1.png" />
-    <None Include="Resources\maintenance.png" />
-    <None Include="Resources\cart1.png" />
-    <None Include="Resources\Empleado2.png" />
-    <None Include="Resources\Empleado11.png" />
-    <None Include="Resources\labour1.png" />
-    <None Include="Resources\logo_reducido1.bmp" />
-    <None Include="Resources\logo3.png" />
-    <None Include="Resources\logo11.png" />
     <Content Include="Resources\price-list.png" />
     <None Include="Resources\logo_reducido.bmp" />
     <None Include="Resources\Image1.png" />
