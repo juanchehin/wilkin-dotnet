@@ -36,7 +36,7 @@ namespace CapaPresentacion
                 string rpta = "";
 
                 rpta = CN_Clientes.NuevoTrabajo(this.IdCliente,txtAceite.Text.Trim(), txtFiltro.Text.Trim(), cbCorreaDist.Text,cbAlternador.Text, cbTensorDist.Text, cbBombaAgua.Text
-                    , cbPastillaFreno.Text, cbRefrigerante.Text, cbBujia.Text, cbCambioAceite.Text, cbFiltroAceite.Text, cbComb.Text, cbAA.Text, txtKm.Text.Trim(),rtbObservaciones.Text.Trim());                    
+                    , cbPastillaFreno.Text, cbRefrigerante.Text, cbBujia.Text, txtCambioAceite.Text, txtFiltro.Text, txtComb.Text, txtAA.Text, txtKm.Text.Trim(),rtbObservaciones.Text.Trim());                    
                 if (rpta.Equals("Ok"))
                 {
                        
@@ -58,17 +58,9 @@ namespace CapaPresentacion
 
         private void rellenarComboxs()
         {
-            cbAA.Items.Add("Si");
-            cbAA.Items.Add("No");
-            cbAA.SelectedItem = "No";
-
             cbAlternador.Items.Add("Si");
             cbAlternador.Items.Add("No");
             cbAlternador.SelectedItem = "No";
-
-            cbComb.Items.Add("Si");
-            cbComb.Items.Add("No");
-            cbComb.SelectedItem = "No";
 
             cbBombaAgua.Items.Add("Si");
             cbBombaAgua.Items.Add("No");
@@ -78,21 +70,9 @@ namespace CapaPresentacion
             cbBujia.Items.Add("No");
             cbBujia.SelectedItem = "No";
 
-            cbCambioAceite.Items.Add("Si");
-            cbCambioAceite.Items.Add("No");
-            cbCambioAceite.SelectedItem = "No";
-
             cbCorreaDist.Items.Add("Si");
             cbCorreaDist.Items.Add("No");
             cbCorreaDist.SelectedItem = "No";
-
-            cbFiltroAceite.Items.Add("Si");
-            cbFiltroAceite.Items.Add("No");
-            cbFiltroAceite.SelectedItem = "No";
-
-            cbCambioAceite.Items.Add("Si");
-            cbCambioAceite.Items.Add("No");
-            cbCambioAceite.SelectedItem = "No";
 
             cbPastillaFreno.Items.Add("Si");
             cbPastillaFreno.Items.Add("No");
@@ -117,6 +97,11 @@ namespace CapaPresentacion
         {
             MessageBox.Show(mensaje, "Wilkin Lubricentro", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -32,12 +32,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cbCambioAceite = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.cbRefrigerante = new System.Windows.Forms.ComboBox();
-            this.cbAA = new System.Windows.Forms.ComboBox();
-            this.cbComb = new System.Windows.Forms.ComboBox();
-            this.cbFiltroAceite = new System.Windows.Forms.ComboBox();
             this.cbBujia = new System.Windows.Forms.ComboBox();
             this.cbPastillaFreno = new System.Windows.Forms.ComboBox();
             this.cbBombaAgua = new System.Windows.Forms.ComboBox();
@@ -60,7 +56,6 @@
             this.txtAceite = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -68,6 +63,9 @@
             this.lblApellidosNomb = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.lblFecha = new System.Windows.Forms.Label();
+            this.txtCambioAceite = new System.Windows.Forms.TextBox();
+            this.txtComb = new System.Windows.Forms.TextBox();
+            this.txtAA = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -91,15 +89,15 @@
             this.btnCancelar.TabIndex = 18;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.cbCambioAceite);
+            this.groupBox1.Controls.Add(this.txtAA);
+            this.groupBox1.Controls.Add(this.txtComb);
+            this.groupBox1.Controls.Add(this.txtCambioAceite);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.cbRefrigerante);
-            this.groupBox1.Controls.Add(this.cbAA);
-            this.groupBox1.Controls.Add(this.cbComb);
-            this.groupBox1.Controls.Add(this.cbFiltroAceite);
             this.groupBox1.Controls.Add(this.cbBujia);
             this.groupBox1.Controls.Add(this.cbPastillaFreno);
             this.groupBox1.Controls.Add(this.cbBombaAgua);
@@ -122,7 +120,6 @@
             this.groupBox1.Controls.Add(this.txtAceite);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -133,19 +130,11 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Trabajo";
             // 
-            // cbCambioAceite
-            // 
-            this.cbCambioAceite.FormattingEnabled = true;
-            this.cbCambioAceite.Location = new System.Drawing.Point(505, 159);
-            this.cbCambioAceite.Name = "cbCambioAceite";
-            this.cbCambioAceite.Size = new System.Drawing.Size(121, 24);
-            this.cbCambioAceite.TabIndex = 7;
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(396, 163);
+            this.label11.Location = new System.Drawing.Point(396, 115);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(106, 17);
             this.label11.TabIndex = 41;
@@ -154,34 +143,10 @@
             // cbRefrigerante
             // 
             this.cbRefrigerante.FormattingEnabled = true;
-            this.cbRefrigerante.Location = new System.Drawing.Point(505, 298);
+            this.cbRefrigerante.Location = new System.Drawing.Point(505, 250);
             this.cbRefrigerante.Name = "cbRefrigerante";
             this.cbRefrigerante.Size = new System.Drawing.Size(121, 24);
-            this.cbRefrigerante.TabIndex = 13;
-            // 
-            // cbAA
-            // 
-            this.cbAA.FormattingEnabled = true;
-            this.cbAA.Location = new System.Drawing.Point(505, 254);
-            this.cbAA.Name = "cbAA";
-            this.cbAA.Size = new System.Drawing.Size(121, 24);
-            this.cbAA.TabIndex = 11;
-            // 
-            // cbComb
-            // 
-            this.cbComb.FormattingEnabled = true;
-            this.cbComb.Location = new System.Drawing.Point(505, 206);
-            this.cbComb.Name = "cbComb";
-            this.cbComb.Size = new System.Drawing.Size(121, 24);
-            this.cbComb.TabIndex = 9;
-            // 
-            // cbFiltroAceite
-            // 
-            this.cbFiltroAceite.FormattingEnabled = true;
-            this.cbFiltroAceite.Location = new System.Drawing.Point(505, 113);
-            this.cbFiltroAceite.Name = "cbFiltroAceite";
-            this.cbFiltroAceite.Size = new System.Drawing.Size(121, 24);
-            this.cbFiltroAceite.TabIndex = 5;
+            this.cbRefrigerante.TabIndex = 11;
             // 
             // cbBujia
             // 
@@ -245,7 +210,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(396, 301);
+            this.label17.Location = new System.Drawing.Point(396, 253);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(98, 17);
             this.label17.TabIndex = 37;
@@ -317,7 +282,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(396, 206);
+            this.label4.Location = new System.Drawing.Point(396, 158);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(56, 17);
             this.label4.TabIndex = 27;
@@ -337,7 +302,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(396, 254);
+            this.label8.Location = new System.Drawing.Point(396, 206);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(88, 17);
             this.label8.TabIndex = 24;
@@ -379,16 +344,6 @@
             this.label2.Size = new System.Drawing.Size(82, 17);
             this.label2.TabIndex = 17;
             this.label2.Text = "Alternador :";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(396, 117);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(90, 17);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "Filtro Aceite :";
             // 
             // label3
             // 
@@ -462,6 +417,27 @@
             this.lblFecha.TabIndex = 22;
             this.lblFecha.Text = "dd/mm/aaaa";
             // 
+            // txtCambioAceite
+            // 
+            this.txtCambioAceite.Location = new System.Drawing.Point(505, 112);
+            this.txtCambioAceite.Name = "txtCambioAceite";
+            this.txtCambioAceite.Size = new System.Drawing.Size(196, 23);
+            this.txtCambioAceite.TabIndex = 5;
+            // 
+            // txtComb
+            // 
+            this.txtComb.Location = new System.Drawing.Point(505, 155);
+            this.txtComb.Name = "txtComb";
+            this.txtComb.Size = new System.Drawing.Size(196, 23);
+            this.txtComb.TabIndex = 7;
+            // 
+            // txtAA
+            // 
+            this.txtAA.Location = new System.Drawing.Point(505, 203);
+            this.txtAA.Name = "txtAA";
+            this.txtAA.Size = new System.Drawing.Size(196, 23);
+            this.txtAA.TabIndex = 9;
+            // 
             // formNuevoTrabajo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -503,7 +479,6 @@
         private System.Windows.Forms.TextBox txtAceite;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -516,9 +491,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.ComboBox cbRefrigerante;
-        private System.Windows.Forms.ComboBox cbAA;
-        private System.Windows.Forms.ComboBox cbComb;
-        private System.Windows.Forms.ComboBox cbFiltroAceite;
         private System.Windows.Forms.ComboBox cbBujia;
         private System.Windows.Forms.ComboBox cbPastillaFreno;
         private System.Windows.Forms.ComboBox cbBombaAgua;
@@ -527,7 +499,9 @@
         private System.Windows.Forms.ComboBox cbCorreaDist;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.ComboBox cbCambioAceite;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtAA;
+        private System.Windows.Forms.TextBox txtComb;
+        private System.Windows.Forms.TextBox txtCambioAceite;
     }
 }

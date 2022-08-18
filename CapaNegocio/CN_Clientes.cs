@@ -85,10 +85,7 @@ namespace CapaNegocio
             PastillaFreno = PastillaFreno != "Si" ? "N" : "S";
             CambioRef = CambioRef != "Si" ? "N" : "S";
             CambioBujia = CambioBujia != "Si" ? "N" : "S";
-            CambioAceite = CambioAceite != "Si" ? "N" : "S";
             CambioFiltroAceite = CambioFiltroAceite != "Si" ? "N" : "S";
-            CambioComb = CambioComb != "Si" ? "N" : "S";
-            CambioAA = CambioAA != "Si" ? "N" : "S";
 
 
             if (Kilometros == "" || string.IsNullOrEmpty(Kilometros))

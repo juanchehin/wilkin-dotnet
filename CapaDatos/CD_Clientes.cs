@@ -472,7 +472,7 @@ namespace CapaDatos
                 MySqlParameter pCambioAceite = new MySqlParameter();
                 pCambioAceite.ParameterName = "@pCambioAceite";
                 pCambioAceite.MySqlDbType = MySqlDbType.VarChar;
-                pCambioAceite.Size = 1;
+                pCambioAceite.Size = 45;
                 pCambioAceite.Value = CambioAceite;
                 comando.Parameters.Add(pCambioAceite);
 
@@ -486,14 +486,14 @@ namespace CapaDatos
                 MySqlParameter pCambioComb = new MySqlParameter();
                 pCambioComb.ParameterName = "@pCambioComb";
                 pCambioComb.MySqlDbType = MySqlDbType.VarChar;
-                pCambioComb.Size = 1;
+                pCambioComb.Size = 250;
                 pCambioComb.Value = CambioComb;
                 comando.Parameters.Add(pCambioComb);
 
                 MySqlParameter pCambioAA = new MySqlParameter();
                 pCambioAA.ParameterName = "@pCambioAA";
                 pCambioAA.MySqlDbType = MySqlDbType.VarChar;
-                pCambioAA.Size = 1;
+                pCambioAA.Size = 250;
                 pCambioAA.Value = CambioAA;
                 comando.Parameters.Add(pCambioAA);
 
