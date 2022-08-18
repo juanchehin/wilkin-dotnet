@@ -21,7 +21,7 @@ namespace CapaDatos
         DataTable tabla = new DataTable();
         MySqlCommand comando = new MySqlCommand();
 
-        public DataTable ListarClientesPaginado(int desde)
+        public DataSet ListarClientesPaginado(int desde)
         {
             comando.Parameters.Clear();
             comando.Connection = conexion.AbrirConexion();
@@ -34,11 +34,15 @@ namespace CapaDatos
             pDesde.Value = desde;
             comando.Parameters.Add(pDesde);
 
-            tabla.Clear();
-            leer = comando.ExecuteReader();
-            tabla.Load(leer);
+            MySqlDataAdapter da = new MySqlDataAdapter(comando);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+
+            comando.Parameters.Clear();
+
             conexion.CerrarConexion();
-            return tabla;
+
+            return ds;
 
         }
 
@@ -177,8 +181,7 @@ namespace CapaDatos
                 pObservaciones.Value = Observaciones;
                 comando.Parameters.Add(pObservaciones);
 
-                rpta = comando.ExecuteScalar().ToString() == "Ok" ? "Ok" : "No se edito el Registro";
-
+                rpta = comando.ExecuteScalar().ToString();
 
 
             }
@@ -496,7 +499,7 @@ namespace CapaDatos
 
                 MySqlParameter pKilometros = new MySqlParameter();
                 pKilometros.ParameterName = "@pKilometros";
-                pKilometros.MySqlDbType = MySqlDbType.VarChar;
+                pKilometros.MySqlDbType = MySqlDbType.Float;
                 pKilometros.Size = 45;
                 pKilometros.Value = Kilometros;
                 comando.Parameters.Add(pKilometros);

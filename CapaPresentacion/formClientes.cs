@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Windows.Forms;
 using CapaNegocio;
 
@@ -10,6 +11,9 @@ namespace CapaPresentacion
 
         private int IdCliente;
         private int desde = 0;
+        //private int totalClientes = 0;
+        DataSet ds = new DataSet();
+        string totalClientes;
 
         public formClientes()
         {
@@ -22,17 +26,17 @@ namespace CapaPresentacion
             ListarClientesPaginado(0);
 
         }
+
         public void ListarClientesPaginado(int desde)
         {
-            dataListadoClientes.DataSource = objetoCN.ListarClientesPaginado(this.desde);
+            ds = objetoCN.ListarClientesPaginado(desde);
+            dataListadoClientes.DataSource = ds.Tables[0];
+            totalClientes = ds.Tables[1].Rows[0][0].ToString();
+            lblTotalClientes.Text = "Total de Registros: " + totalClientes;
             dataListadoClientes.Columns[0].Visible = false;
-            lblTotalClientes.Text = "Total de Registros: " + Convert.ToString(dataListadoClientes.Rows.Count);
-        }
-
-        private void txtBuscar_TextChanged(object sender, EventArgs e)
-        {
 
         }
+
 
         //Mostrar Mensaje de Confirmación
         private void MensajeOk(string mensaje)
@@ -74,6 +78,7 @@ namespace CapaPresentacion
             this.dataListadoClientes.DataSource = objetoCN.BuscarCliente(this.txtBuscarApellido.Text,this.txtBuscarNombres.Text);
             // this.OcultarColumnas();
             lblTotalClientes.Text = "Total de Registros: " + Convert.ToString(dataListadoClientes.Rows.Count);
+            //this.totalClientes = dataListadoClientes.Rows.Count;
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -152,7 +157,7 @@ namespace CapaPresentacion
 
         private void btnSiguiente_Click(object sender, EventArgs e)
         {
-            if ((desde + 20) >= Convert.ToInt32(lblTotalClientes))
+            if ((desde + 15) >= Convert.ToInt32(this.totalClientes))
             {
                 return;
             }
@@ -162,7 +167,7 @@ namespace CapaPresentacion
                 return;
             }
 
-            this.desde += 20;
+            this.desde += 15;
             this.ListarClientesPaginado(this.desde);
 
         }
@@ -175,7 +180,7 @@ namespace CapaPresentacion
                 return;
             }
 
-            this.desde -= 20;
+            this.desde -= 15;
             this.ListarClientesPaginado(this.desde);
 
         }

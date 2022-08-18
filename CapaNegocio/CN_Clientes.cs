@@ -18,10 +18,10 @@ namespace CapaNegocio
             Direccion, Modelo, Observaciones);
         }
 
-        public DataTable ListarClientesPaginado(int desde)
+        public DataSet ListarClientesPaginado(int desde)
         {
 
-            DataTable tabla = new DataTable();
+            DataSet tabla = new DataSet();
             tabla = objetoCD.ListarClientesPaginado(desde);
             return tabla;
         }
@@ -89,6 +89,12 @@ namespace CapaNegocio
             CambioFiltroAceite = CambioFiltroAceite != "No" ? "S" : "N";
             CambioComb = CambioComb != "No" ? "S" : "N";
             CambioAA = CambioAA != "No" ? "S" : "N";
+
+
+            if (Kilometros == "" || string.IsNullOrEmpty(Kilometros))
+            {
+                Kilometros = "0";
+            }
 
             CD_Clientes Obj = new CD_Clientes();
 
