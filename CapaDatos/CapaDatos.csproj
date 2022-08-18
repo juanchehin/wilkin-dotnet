@@ -116,7 +116,6 @@
   <ItemGroup>
     <Compile Include="CD_Clientes.cs" />
     <Compile Include="CD_Conexion.cs" />
-    <Compile Include="CD_Configuraciones.cs" />
     <Compile Include="CD_Usuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

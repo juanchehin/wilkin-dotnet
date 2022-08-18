@@ -50,7 +50,7 @@
             // 
             this.btnIngresar.Location = new System.Drawing.Point(158, 228);
             this.btnIngresar.Name = "btnIngresar";
-            this.btnIngresar.Size = new System.Drawing.Size(75, 23);
+            this.btnIngresar.Size = new System.Drawing.Size(97, 32);
             this.btnIngresar.TabIndex = 4;
             this.btnIngresar.Text = "Ingreso";
             this.btnIngresar.UseVisualStyleBackColor = true;
@@ -59,9 +59,9 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(353, 228);
+            this.btnCancelar.Location = new System.Drawing.Point(339, 228);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.Size = new System.Drawing.Size(89, 32);
             this.btnCancelar.TabIndex = 5;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -92,7 +92,7 @@
             // 
             this.txtUsuario.Location = new System.Drawing.Point(158, 86);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(270, 20);
+            this.txtUsuario.Size = new System.Drawing.Size(270, 23);
             this.txtUsuario.TabIndex = 8;
             this.txtUsuario.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -101,7 +101,7 @@
             this.txtPassword.Location = new System.Drawing.Point(158, 166);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(270, 20);
+            this.txtPassword.Size = new System.Drawing.Size(270, 23);
             this.txtPassword.TabIndex = 9;
             this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             // 
@@ -113,9 +113,10 @@
             this.groupBox1.Controls.Add(this.btnCancelar);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(302, 134);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(56, 190);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(469, 284);
+            this.groupBox1.Size = new System.Drawing.Size(518, 292);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ingreso al sistema";
@@ -124,9 +125,9 @@
             // 
             this.pictureBox2.BackgroundImage = global::CapaPresentacion.Properties.Resources.login;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox2.Location = new System.Drawing.Point(518, 55);
+            this.pictureBox2.Location = new System.Drawing.Point(272, 111);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(68, 73);
+            this.pictureBox2.Size = new System.Drawing.Size(64, 73);
             this.pictureBox2.TabIndex = 11;
             this.pictureBox2.TabStop = false;
             // 
@@ -134,9 +135,9 @@
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.logo;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(130, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(333, 85);
+            this.pictureBox1.Size = new System.Drawing.Size(365, 93);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
@@ -144,7 +145,7 @@
             // btnAyuda
             // 
             this.btnAyuda.Image = global::CapaPresentacion.Properties.Resources.info;
-            this.btnAyuda.Location = new System.Drawing.Point(13, 397);
+            this.btnAyuda.Location = new System.Drawing.Point(587, 507);
             this.btnAyuda.Name = "btnAyuda";
             this.btnAyuda.Size = new System.Drawing.Size(43, 41);
             this.btnAyuda.TabIndex = 12;
@@ -157,15 +158,15 @@
             this.AcceptButton = this.btnIngresar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(642, 560);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnAyuda);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "formLogin";
-            this.Text = "                                                                                 " +
-    "                 ..:: Login - Wilkin ::..";
+            this.Text = "                                                                             ..::" +
+    " Login - Wilkin ::..";
             this.Load += new System.EventHandler(this.formLogin_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
