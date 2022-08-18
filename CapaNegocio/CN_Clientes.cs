@@ -78,17 +78,17 @@ namespace CapaNegocio
             string CambioAA, string Kilometros,string Observaciones)
         {
 
-            CorreaDist = CorreaDist != "No" ? "S" : "N";
-            Alternador = Alternador != "No" ? "S" : "N";
-            TensorDist = TensorDist != "No" ? "S" : "N";
-            BombaAgua = BombaAgua != "No" ? "S" : "N";
-            PastillaFreno = PastillaFreno != "No" ? "S" : "N";
-            CambioRef = CambioRef != "No" ? "S" : "N";
-            CambioBujia = CambioBujia != "No" ? "S" : "N";
-            CambioAceite = CambioAceite != "No" ? "S" : "N";
-            CambioFiltroAceite = CambioFiltroAceite != "No" ? "S" : "N";
-            CambioComb = CambioComb != "No" ? "S" : "N";
-            CambioAA = CambioAA != "No" ? "S" : "N";
+            CorreaDist = CorreaDist != "Si" ? "N" : "S";
+            Alternador = Alternador != "Si" ? "N" : "S";
+            TensorDist = TensorDist != "Si" ? "N" : "S";
+            BombaAgua = BombaAgua != "Si" ? "N" : "S";
+            PastillaFreno = PastillaFreno != "Si" ? "N" : "S";
+            CambioRef = CambioRef != "Si" ? "N" : "S";
+            CambioBujia = CambioBujia != "Si" ? "N" : "S";
+            CambioAceite = CambioAceite != "Si" ? "N" : "S";
+            CambioFiltroAceite = CambioFiltroAceite != "Si" ? "N" : "S";
+            CambioComb = CambioComb != "Si" ? "N" : "S";
+            CambioAA = CambioAA != "Si" ? "N" : "S";
 
 
             if (Kilometros == "" || string.IsNullOrEmpty(Kilometros))
