@@ -1,13 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-
 using CapaNegocio;
 
 namespace CapaPresentacion
@@ -17,21 +9,22 @@ namespace CapaPresentacion
         CN_Clientes objetoCN = new CN_Clientes();
 
         private int IdCliente;
+        private int desde = 0;
 
         public formClientes()
         {
             InitializeComponent();
-            MostrarClientes();
+            ListarClientesPaginado(0);
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            MostrarClientes();
+            ListarClientesPaginado(0);
 
         }
-        public void MostrarClientes()
+        public void ListarClientesPaginado(int desde)
         {
-            dataListadoClientes.DataSource = objetoCN.MostrarClientes();
+            dataListadoClientes.DataSource = objetoCN.ListarClientesPaginado(this.desde);
             dataListadoClientes.Columns[0].Visible = false;
             lblTotalClientes.Text = "Total de Registros: " + Convert.ToString(dataListadoClientes.Rows.Count);
         }
@@ -65,7 +58,7 @@ namespace CapaPresentacion
                 if (Opcion == DialogResult.OK)
                 {
                     CN_Clientes.Eliminar(this.IdCliente);
-                    this.MostrarClientes();
+                    this.ListarClientesPaginado(0);
                 }
                 this.MensajeOk("Se elimino de forma correcta el registro");
             }
@@ -114,11 +107,6 @@ namespace CapaPresentacion
             this.Close();
         }
 
-        private void formClientes_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnEliminar_Click_1(object sender, EventArgs e)
         {
             try
@@ -129,7 +117,7 @@ namespace CapaPresentacion
                 if (Opcion == DialogResult.OK)
                 {
                     CN_Clientes.Eliminar(this.IdCliente);
-                    this.MostrarClientes();
+                    this.ListarClientesPaginado(0);
                     this.MensajeOk("Se elimino de forma correcta el registro");
                 }
             }
@@ -150,13 +138,35 @@ namespace CapaPresentacion
 
         private void btnRefrescar_Click(object sender, EventArgs e)
         {
-            this.MostrarClientes();
+            this.ListarClientesPaginado(0);
         }
 
         private void btnAyuda_Click(object sender, EventArgs e)
         {
             formInformacion frm = new formInformacion();
             frm.Show();
+        }
+
+        private void btnSiguiente_Click(object sender, EventArgs e)
+        {
+            if(this.desde > Convert.ToInt32(lblTotalClientes))
+            {
+                return;
+            }
+            this.desde += 20;
+
+            this.ListarClientesPaginado(this.desde);
+        }
+
+        private void btnAnterior_Click(object sender, EventArgs e)
+        {
+            if (this.desde <= 0)
+            {
+                return;
+            }
+            this.desde -= 20;
+
+            this.ListarClientesPaginado(this.desde);
         }
     }
 

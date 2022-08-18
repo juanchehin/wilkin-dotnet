@@ -255,6 +255,7 @@
     <None Include="Resources\lubricant.png" />
     <Content Include="lubricant.ico" />
     <None Include="Resources\logo2.jpg" />
+    <None Include="Resources\LogoConFondo1.png" />
     <Content Include="Resources\price-list.png" />
     <None Include="Resources\logo_reducido.bmp" />
     <None Include="Resources\Image1.png" />

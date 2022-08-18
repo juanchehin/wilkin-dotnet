@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using System.Data;
 using CapaDatos;
 
 namespace CapaNegocio
@@ -15,23 +9,20 @@ namespace CapaNegocio
 
         //Método Insertar que llama al método Insertar de la clase DArticulo
         //de la CapaDatos
-        public static string Insertar(string Titular, string Transporte, string Telefono)
+        public static string Insertar(string Apellidos, string Nombres, string Telefono, string Marca, string Patente, string Correo,
+            string Direccion, string Modelo, string Observaciones)
         {
-            // Console.WriteLine("En insertar , nombre es " + nombre);
-
             CD_Clientes Obj = new CD_Clientes();
-            Obj.Titular = Titular;
-            Obj.Transporte = Transporte;
-            Obj.Telefono = Telefono;
 
-            return Obj.Insertar(Obj);
+            return Obj.Insertar(Apellidos, Nombres, Telefono, Marca, Patente, Correo,
+            Direccion, Modelo, Observaciones);
         }
 
-        public DataTable MostrarClientes()
+        public DataTable ListarClientesPaginado(int desde)
         {
 
             DataTable tabla = new DataTable();
-            tabla = objetoCD.Mostrar();
+            tabla = objetoCD.ListarClientesPaginado(desde);
             return tabla;
         }
         public static string Eliminar(int IdCliente)
@@ -47,27 +38,21 @@ namespace CapaNegocio
 
             DataTable tabla = new DataTable();
             tabla = objetoCD.MostrarCliente(IdCliente);
-            Console.WriteLine("tabla TableName en capa negocio es : " + tabla.TableName);
-            Console.WriteLine("tabla Rows en capa negocio es : " + tabla.Rows);
             return tabla;
         }
 
-        public static string Editar(int IdCliente, string Transporte, string Titular, string Telefono)
+        public static string Editar(int IdCliente, string Apellidos, string Nombres, string Telefono, string Marca, string Patente, string Correo,
+            string Direccion, string Modelo, string Observaciones)
         {
             
             CD_Clientes Obj = new CD_Clientes();
-            Obj.IdCliente = IdCliente;
 
-            Obj.Transporte = Transporte;
-            Obj.Titular = Titular;
-            Obj.Telefono = Telefono;
-
-            return Obj.Editar(Obj);
+            return Obj.Editar(IdCliente,Apellidos, Nombres, Telefono, Marca, Patente, Correo,
+            Direccion, Modelo, Observaciones);
         }
 
         public DataTable BuscarCliente(string textobuscar)
         {
-            Console.WriteLine("textobuscar en capa negocio es : " + textobuscar);
             CD_Clientes Obj = new CD_Clientes();
             Obj.TextoBuscar = textobuscar;
             return Obj.BuscarCliente(Obj);

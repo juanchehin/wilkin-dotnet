@@ -48,12 +48,19 @@ namespace CapaDatos
         MySqlCommand comando = new MySqlCommand();
 
 
-        public DataTable Mostrar()
+        public DataTable ListarClientesPaginado(int desde)
         {
 
             comando.Connection = conexion.AbrirConexion();
             comando.CommandType = CommandType.StoredProcedure;
-            comando.CommandText = "bsp_dame_clientes";
+            comando.CommandText = "bsp_listar_clientes";
+
+            MySqlParameter pDesde = new MySqlParameter();
+            pDesde.ParameterName = "@pDesde";
+            pDesde.MySqlDbType = MySqlDbType.Int32;
+            // pIdProducto.Size = 60;
+            pDesde.Value = desde;
+            comando.Parameters.Add(pDesde);
 
             tabla.Clear();
             leer = comando.ExecuteReader();
@@ -66,7 +73,6 @@ namespace CapaDatos
         // devuelve solo 1 cliente de la BD
         public DataTable MostrarCliente(int IdCliente)
         {
-            Console.WriteLine("IdCliente en capa datos es : " + IdCliente);
             comando.Connection = conexion.AbrirConexion();
             comando.CommandType = CommandType.StoredProcedure;
             comando.CommandText = "bsp_dame_cliente";
@@ -88,44 +94,81 @@ namespace CapaDatos
 
         }
 
-        public string Editar(CD_Clientes Cliente)
+        public string Editar(int IdCliente,string Apellidos, string Nombres, string Telefono, string Marca, string Patente, string Correo,
+            string Direccion, string Modelo, string Observaciones)
         {
-            Console.WriteLine("Cliente.IdCliente es 1 : " + Cliente.IdCliente);
             string rpta = "";
-            comando.Parameters.Clear();// si no ponerlo al comienzo de esta funcion
+            comando.Parameters.Clear();
             try
             {
-                comando.Connection = conexion.AbrirConexion();
-                comando.CommandType = CommandType.StoredProcedure;
-                comando.CommandText = "bsp_editar_cliente";
-
                 MySqlParameter pIdCliente = new MySqlParameter();
                 pIdCliente.ParameterName = "@pIdCliente";
                 pIdCliente.MySqlDbType = MySqlDbType.Int32;
-                // pIdEmpleado.Size = 60;
-                pIdCliente.Value = Cliente.IdCliente;
+                pIdCliente.Value = IdCliente;
                 comando.Parameters.Add(pIdCliente);
 
-                MySqlParameter pTransporte = new MySqlParameter();
-                pTransporte.ParameterName = "@pTransporte";
-                pTransporte.MySqlDbType = MySqlDbType.VarChar;
-                pTransporte.Size = 60;
-                pTransporte.Value = Cliente.Transporte;
-                comando.Parameters.Add(pTransporte);
+                MySqlParameter pApellidos = new MySqlParameter();
+                pApellidos.ParameterName = "@pApellidos";
+                pApellidos.MySqlDbType = MySqlDbType.VarChar;
+                pApellidos.Size = 60;
+                pApellidos.Value = Apellidos;
+                comando.Parameters.Add(pApellidos);
 
-                MySqlParameter pTitular = new MySqlParameter();
-                pTitular.ParameterName = "@pTitular";
-                pTitular.MySqlDbType = MySqlDbType.VarChar;
-                pTitular.Size = 30;
-                pTitular.Value = Cliente.Titular;
-                comando.Parameters.Add(pTitular);
+                MySqlParameter pNombres = new MySqlParameter();
+                pNombres.ParameterName = "@pNombres";
+                pNombres.MySqlDbType = MySqlDbType.VarChar;
+                pNombres.Size = 60;
+                pNombres.Value = Nombres;
+                comando.Parameters.Add(pNombres);
+
+                MySqlParameter pMarca = new MySqlParameter();
+                pMarca.ParameterName = "@pMarca";
+                pMarca.MySqlDbType = MySqlDbType.VarChar;
+                pMarca.Size = 45;
+                pMarca.Value = Marca;
+                comando.Parameters.Add(pMarca);
+
+                MySqlParameter pPatente = new MySqlParameter();
+                pPatente.ParameterName = "@pPatente";
+                pPatente.MySqlDbType = MySqlDbType.VarChar;
+                pPatente.Size = 60;
+                pPatente.Value = Patente;
+                comando.Parameters.Add(pPatente);
+
+                MySqlParameter pDireccion = new MySqlParameter();
+                pDireccion.ParameterName = "@pDireccion";
+                pDireccion.MySqlDbType = MySqlDbType.VarChar;
+                pDireccion.Size = 250;
+                pDireccion.Value = Direccion;
+                comando.Parameters.Add(pDireccion);
+
+                MySqlParameter pCorreo = new MySqlParameter();
+                pCorreo.ParameterName = "@pCorreo";
+                pCorreo.MySqlDbType = MySqlDbType.VarChar;
+                pCorreo.Size = 60;
+                pCorreo.Value = Correo;
+                comando.Parameters.Add(pCorreo);
 
                 MySqlParameter pTelefono = new MySqlParameter();
                 pTelefono.ParameterName = "@pTelefono";
                 pTelefono.MySqlDbType = MySqlDbType.VarChar;
                 pTelefono.Size = 15;
-                pTelefono.Value = Cliente.Telefono;
+                pTelefono.Value = Telefono;
                 comando.Parameters.Add(pTelefono);
+
+                MySqlParameter pModelo = new MySqlParameter();
+                pModelo.ParameterName = "@pModelo";
+                pModelo.MySqlDbType = MySqlDbType.VarChar;
+                pModelo.Size = 60;
+                pModelo.Value = Modelo;
+                comando.Parameters.Add(pModelo);
+
+                MySqlParameter pObservaciones = new MySqlParameter();
+                pObservaciones.ParameterName = "@pObservaciones";
+                pObservaciones.MySqlDbType = MySqlDbType.VarChar;
+                pObservaciones.Size = 250;
+                pObservaciones.Value = Observaciones;
+                comando.Parameters.Add(pObservaciones);
 
                 rpta = comando.ExecuteScalar().ToString() == "Ok" ? "Ok" : "No se edito el Registro";
 
@@ -145,7 +188,8 @@ namespace CapaDatos
 
         //Métodos
         //Insertar
-        public string Insertar(CD_Clientes Cliente)
+        public string Insertar(string Apellidos,string Nombres,string Telefono,string Marca,string Patente,string Correo,
+            string Direccion,string Modelo,string Observaciones)
         {
             string rpta = "";
             try
@@ -154,31 +198,68 @@ namespace CapaDatos
                 comando.CommandType = CommandType.StoredProcedure;
                 comando.CommandText = "bsp_alta_cliente";
 
-                MySqlParameter pTitular = new MySqlParameter();
-                pTitular.ParameterName = "@pTitular";
-                pTitular.MySqlDbType = MySqlDbType.VarChar;
-                pTitular.Size = 60;
-                pTitular.Value = Cliente.Titular;
-                comando.Parameters.Add(pTitular);
+                MySqlParameter pApellidos = new MySqlParameter();
+                pApellidos.ParameterName = "@pApellidos";
+                pApellidos.MySqlDbType = MySqlDbType.VarChar;
+                pApellidos.Size = 60;
+                pApellidos.Value = Apellidos;
+                comando.Parameters.Add(pApellidos);
 
-                // Console.WriteLine("pNombre es : " + pNombre.Value);
+                MySqlParameter pNombres = new MySqlParameter();
+                pNombres.ParameterName = "@pNombres";
+                pNombres.MySqlDbType = MySqlDbType.VarChar;
+                pNombres.Size = 60;
+                pNombres.Value = Nombres;
+                comando.Parameters.Add(pNombres);                                
 
-                MySqlParameter pTransporte = new MySqlParameter();
-                pTransporte.ParameterName = "@pTransporte";
-                pTransporte.MySqlDbType = MySqlDbType.VarChar;
-                pTransporte.Size = 60;
-                pTransporte.Value = Cliente.Transporte;
-                comando.Parameters.Add(pTransporte);
+                MySqlParameter pMarca = new MySqlParameter();
+                pMarca.ParameterName = "@pMarca";
+                pMarca.MySqlDbType = MySqlDbType.VarChar;
+                pMarca.Size = 45;
+                pMarca.Value = Marca;
+                comando.Parameters.Add(pMarca);
+
+                MySqlParameter pPatente = new MySqlParameter();
+                pPatente.ParameterName = "@pPatente";
+                pPatente.MySqlDbType = MySqlDbType.VarChar;
+                pPatente.Size = 60;
+                pPatente.Value = Patente;
+                comando.Parameters.Add(pPatente);
+
+                MySqlParameter pDireccion = new MySqlParameter();
+                pDireccion.ParameterName = "@pDireccion";
+                pDireccion.MySqlDbType = MySqlDbType.VarChar;
+                pDireccion.Size = 250;
+                pDireccion.Value = Direccion;
+                comando.Parameters.Add(pDireccion);
+
+                MySqlParameter pCorreo = new MySqlParameter();
+                pCorreo.ParameterName = "@pCorreo";
+                pCorreo.MySqlDbType = MySqlDbType.VarChar;
+                pCorreo.Size = 60;
+                pCorreo.Value = Correo;
+                comando.Parameters.Add(pCorreo);
 
                 MySqlParameter pTelefono = new MySqlParameter();
                 pTelefono.ParameterName = "@pTelefono";
                 pTelefono.MySqlDbType = MySqlDbType.VarChar;
                 pTelefono.Size = 15;
-                pTelefono.Value = Cliente.Telefono;
+                pTelefono.Value = Telefono;
                 comando.Parameters.Add(pTelefono);
 
-                // Console.WriteLine("el comando es : " + comando.CommandText[0]);
-                //Ejecutamos nuestro comando
+                MySqlParameter pModelo = new MySqlParameter();
+                pModelo.ParameterName = "@pModelo";
+                pModelo.MySqlDbType = MySqlDbType.VarChar;
+                pModelo.Size = 60;
+                pModelo.Value = Modelo;
+                comando.Parameters.Add(pModelo);
+
+                MySqlParameter pObservaciones = new MySqlParameter();
+                pObservaciones.ParameterName = "@pObservaciones";
+                pObservaciones.MySqlDbType = MySqlDbType.VarChar;
+                pObservaciones.Size = 250;
+                pObservaciones.Value = Observaciones;
+                comando.Parameters.Add(pObservaciones);
 
                 rpta = comando.ExecuteScalar().ToString();
 
