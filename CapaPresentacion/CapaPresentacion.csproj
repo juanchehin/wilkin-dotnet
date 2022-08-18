@@ -275,6 +275,13 @@
     <None Include="Resources\logo2.jpg" />
     <None Include="Resources\LogoConFondo1.png" />
     <None Include="Resources\maintenance.png" />
+    <None Include="Resources\cart1.png" />
+    <None Include="Resources\Empleado2.png" />
+    <None Include="Resources\Empleado11.png" />
+    <None Include="Resources\labour1.png" />
+    <None Include="Resources\logo_reducido1.bmp" />
+    <None Include="Resources\logo3.png" />
+    <None Include="Resources\logo11.png" />
     <Content Include="Resources\price-list.png" />
     <None Include="Resources\logo_reducido.bmp" />
     <None Include="Resources\Image1.png" />

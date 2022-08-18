@@ -57,7 +57,7 @@ namespace CapaPresentacion
 
                 if (Opcion == DialogResult.OK)
                 {
-                    CN_Clientes.Eliminar(this.IdCliente);
+                    CN_Clientes.EliminarCliente(this.IdCliente);
                     this.ListarClientesPaginado(0);
                 }
                 this.MensajeOk("Se elimino de forma correcta el registro");
@@ -116,7 +116,7 @@ namespace CapaPresentacion
 
                 if (Opcion == DialogResult.OK)
                 {
-                    CN_Clientes.Eliminar(this.IdCliente);
+                    CN_Clientes.EliminarCliente(this.IdCliente);
                     this.ListarClientesPaginado(0);
                     this.MensajeOk("Se elimino de forma correcta el registro");
                 }
@@ -125,7 +125,7 @@ namespace CapaPresentacion
             {
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
-            this.Close();
+            //this.Close();
         }
 
         private void txtBuscar_KeyDown(object sender, KeyEventArgs e)
@@ -139,6 +139,9 @@ namespace CapaPresentacion
         private void btnRefrescar_Click(object sender, EventArgs e)
         {
             this.ListarClientesPaginado(0);
+            txtBuscarApellido.Clear();
+            txtBuscarNombres.Clear();
+            txtPatente.Clear();
         }
 
         private void btnAyuda_Click(object sender, EventArgs e)

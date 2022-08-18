@@ -25,11 +25,11 @@ namespace CapaNegocio
             tabla = objetoCD.ListarClientesPaginado(desde);
             return tabla;
         }
-        public static string Eliminar(int IdCliente)
+        public static string EliminarCliente(int IdCliente)
         {
             CD_Clientes Obj = new CD_Clientes();
-            //Obj.IdCliente = IdCliente;
-            return Obj.Eliminar(Obj);
+
+            return Obj.EliminarCliente(IdCliente);
         }
 
         // Devuelve solo un Cliente

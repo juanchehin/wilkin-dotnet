@@ -153,7 +153,6 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.BackgroundImage = global::CapaPresentacion.Properties.Resources.man4;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBox2.Location = new System.Drawing.Point(866, 12);
             this.pictureBox2.Name = "pictureBox2";
