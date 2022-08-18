@@ -168,6 +168,12 @@ namespace CapaPresentacion
 
             this.ListarClientesPaginado(this.desde);
         }
+
+        private void btnAgregarTrabajo_Click(object sender, EventArgs e)
+        {
+            formNuevoTrabajo frm = new formNuevoTrabajo(this.IdCliente);
+            frm.Show();
+        }
     }
 
 }

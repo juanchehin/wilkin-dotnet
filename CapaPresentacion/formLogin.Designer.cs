@@ -55,7 +55,6 @@
             this.btnIngresar.Text = "Ingreso";
             this.btnIngresar.UseVisualStyleBackColor = true;
             this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
-            this.btnIngresar.Enter += new System.EventHandler(this.txtPassword_TextChanged);
             // 
             // btnCancelar
             // 
@@ -86,7 +85,6 @@
             this.label2.Size = new System.Drawing.Size(125, 25);
             this.label2.TabIndex = 7;
             this.label2.Text = "Contraseña :";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // txtUsuario
             // 
@@ -94,7 +92,6 @@
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(270, 23);
             this.txtUsuario.TabIndex = 8;
-            this.txtUsuario.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // txtPassword
             // 
@@ -103,7 +100,6 @@
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(270, 23);
             this.txtPassword.TabIndex = 9;
-            this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             // 
             // groupBox1
             // 

@@ -57,5 +57,16 @@ namespace CapaNegocio
             Obj.TextoBuscar = textobuscar;
             return Obj.BuscarCliente(Obj);
         }
+
+        public static string NuevoTrabajo(int IdCliente,string Aceite, string Filtro, string CorreaDist, string Alternador, string TensorDist, string BombaAgua,
+            string PastillaFreno, string CambioRef, string CambioBujia, string CambioAceite, string CambioFiltroAceite, string CambioComb,
+            string CambioAA, string Kilometros,string Observaciones)
+        {
+            CD_Clientes Obj = new CD_Clientes();
+
+            return Obj.NuevoTrabajo(IdCliente,Aceite, Filtro, CorreaDist, Alternador, TensorDist, BombaAgua,
+            PastillaFreno, CambioRef, CambioBujia, CambioAceite, CambioFiltroAceite, CambioComb,
+            CambioAA, Kilometros, Observaciones);
+        }
     }
 }

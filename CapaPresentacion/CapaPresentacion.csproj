@@ -113,6 +113,12 @@
     <Compile Include="formNuevoEditarClientes.Designer.cs">
       <DependentUpon>formNuevoEditarClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="formNuevoTrabajo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formNuevoTrabajo.Designer.cs">
+      <DependentUpon>formNuevoTrabajo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="formClientes.resx">
@@ -126,6 +132,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formNuevoEditarClientes.resx">
       <DependentUpon>formNuevoEditarClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formNuevoTrabajo.resx">
+      <DependentUpon>formNuevoTrabajo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -256,6 +265,7 @@
     <Content Include="lubricant.ico" />
     <None Include="Resources\logo2.jpg" />
     <None Include="Resources\LogoConFondo1.png" />
+    <None Include="Resources\maintenance.png" />
     <Content Include="Resources\price-list.png" />
     <None Include="Resources\logo_reducido.bmp" />
     <None Include="Resources\Image1.png" />

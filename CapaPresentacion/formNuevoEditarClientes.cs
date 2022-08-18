@@ -57,7 +57,6 @@ namespace CapaPresentacion
         {
             respuesta = objetoCN.MostrarCliente(IdCliente);
 
-            Console.WriteLine("Respuesta es ; " + respuesta.Rows.Count);
             foreach (DataRow row in respuesta.Rows)
             {
                 Console.WriteLine("row es :" + row["Transporte"]);
@@ -77,46 +76,46 @@ namespace CapaPresentacion
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            try
-            {
-                string rpta = "";
-                if (this.txtTransporte.Text == string.Empty || this.txtTitular.Text == string.Empty)
-                {
-                    MensajeError("Falta ingresar algunos datos");
-                }
-                else
-                {
-                    if (this.IsNuevo)
-                    {
-                        rpta = CN_Clientes.Insertar(this.txtTitular.Text.Trim(),this.txtTransporte.Text.Trim(), this.txtTelefono.Text.Trim());
-                    }
-                    else
-                    {
-                        rpta = CN_Clientes.Editar(this.IdCliente, this.txtTitular.Text.Trim(), this.txtTransporte.Text.Trim(), this.txtTelefono.Text.Trim());
-                    }
+            //try
+            //{
+            //    string rpta = "";
+            //    if (this.txtTransporte.Text == string.Empty || this.txtTitular.Text == string.Empty)
+            //    {
+            //        MensajeError("Falta ingresar algunos datos");
+            //    }
+            //    else
+            //    {
+            //        if (this.IsNuevo)
+            //        {
+            //            rpta = CN_Clientes.Insertar(this.txtTitular.Text.Trim(),this.txtTransporte.Text.Trim(), this.txtTelefono.Text.Trim());
+            //        }
+            //        else
+            //        {
+            //            rpta = CN_Clientes.Editar(this.IdCliente, this.txtTitular.Text.Trim(), this.txtTransporte.Text.Trim(), this.txtTelefono.Text.Trim());
+            //        }
 
-                    if (rpta.Equals("Ok"))
-                    {
-                        if (this.IsNuevo)
-                        {
-                            this.MensajeOk("Se Insertó de forma correcta el registro");
-                        }
-                        else
-                        {
-                            this.MensajeOk("Se Actualizó de forma correcta el registro");
-                        }
-                    }
-                    else
-                    {
-                        this.MensajeError(rpta);
-                    }
+            //        if (rpta.Equals("Ok"))
+            //        {
+            //            if (this.IsNuevo)
+            //            {
+            //                this.MensajeOk("Se Insertó de forma correcta el registro");
+            //            }
+            //            else
+            //            {
+            //                this.MensajeOk("Se Actualizó de forma correcta el registro");
+            //            }
+            //        }
+            //        else
+            //        {
+            //            this.MensajeError(rpta);
+            //        }
 
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message + ex.StackTrace);
+            ////}
             this.Close();
         }
         //Mostrar Mensaje de Error

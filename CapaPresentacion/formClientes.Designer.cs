@@ -44,7 +44,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnAgregarTrabajo = new System.Windows.Forms.Button();
             this.btnAnterior = new System.Windows.Forms.Button();
             this.btnSiguiente = new System.Windows.Forms.Button();
             this.btnAyuda = new System.Windows.Forms.Button();
@@ -199,14 +199,15 @@
             this.button1.Text = "Buscar";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnAgregarTrabajo
             // 
-            this.button2.Location = new System.Drawing.Point(552, 132);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(116, 23);
-            this.button2.TabIndex = 35;
-            this.button2.Text = "Agregar Trabajo";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnAgregarTrabajo.Location = new System.Drawing.Point(552, 132);
+            this.btnAgregarTrabajo.Name = "btnAgregarTrabajo";
+            this.btnAgregarTrabajo.Size = new System.Drawing.Size(116, 23);
+            this.btnAgregarTrabajo.TabIndex = 35;
+            this.btnAgregarTrabajo.Text = "Agregar Trabajo";
+            this.btnAgregarTrabajo.UseVisualStyleBackColor = true;
+            this.btnAgregarTrabajo.Click += new System.EventHandler(this.btnAgregarTrabajo_Click);
             // 
             // btnAnterior
             // 
@@ -245,7 +246,7 @@
             this.ClientSize = new System.Drawing.Size(937, 657);
             this.Controls.Add(this.btnAnterior);
             this.Controls.Add(this.btnSiguiente);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnAgregarTrabajo);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox1);
@@ -291,7 +292,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnAgregarTrabajo;
         private System.Windows.Forms.Button btnAnterior;
         private System.Windows.Forms.Button btnSiguiente;
         private System.Windows.Forms.Button btnAyuda;
