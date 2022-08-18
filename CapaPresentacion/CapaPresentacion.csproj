@@ -89,29 +89,17 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configuraciones\formImportacionBD.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Configuraciones\formImportacionBD.Designer.cs">
-      <DependentUpon>formImportacionBD.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Configuraciones\formBackup.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Configuraciones\formBackup.Designer.cs">
-      <DependentUpon>formBackup.cs</DependentUpon>
-    </Compile>
     <Compile Include="formClientes.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="formClientes.Designer.cs">
       <DependentUpon>formClientes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Configuraciones\formConfiguraciones.cs">
+    <Compile Include="formHistorial.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Configuraciones\formConfiguraciones.Designer.cs">
-      <DependentUpon>formConfiguraciones.cs</DependentUpon>
+    <Compile Include="formHistorial.Designer.cs">
+      <DependentUpon>formHistorial.cs</DependentUpon>
     </Compile>
     <Compile Include="formInformacion.cs">
       <SubType>Form</SubType>
@@ -131,25 +119,19 @@
     <Compile Include="formNuevoEditarClientes.Designer.cs">
       <DependentUpon>formNuevoEditarClientes.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmPrincipal.cs">
+    <Compile Include="formNuevoTrabajo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPrincipal.Designer.cs">
-      <DependentUpon>frmPrincipal.cs</DependentUpon>
+    <Compile Include="formNuevoTrabajo.Designer.cs">
+      <DependentUpon>formNuevoTrabajo.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Configuraciones\formImportacionBD.resx">
-      <DependentUpon>formImportacionBD.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Configuraciones\formBackup.resx">
-      <DependentUpon>formBackup.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="formClientes.resx">
       <DependentUpon>formClientes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Configuraciones\formConfiguraciones.resx">
-      <DependentUpon>formConfiguraciones.cs</DependentUpon>
+    <EmbeddedResource Include="formHistorial.resx">
+      <DependentUpon>formHistorial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formInformacion.resx">
       <DependentUpon>formInformacion.cs</DependentUpon>
@@ -160,8 +142,8 @@
     <EmbeddedResource Include="formNuevoEditarClientes.resx">
       <DependentUpon>formNuevoEditarClientes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmPrincipal.resx">
-      <DependentUpon>frmPrincipal.cs</DependentUpon>
+    <EmbeddedResource Include="formNuevoTrabajo.resx">
+      <DependentUpon>formNuevoTrabajo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -173,7 +155,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Resources\Report1.rdlc" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -287,18 +268,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="logo - copia.ico" />
-    <Content Include="logo.ico" />
+    <Content Include="lubricant.ico" />
     <None Include="Resources\logo1.jpg" />
     <None Include="Resources\lubricant.png" />
     <Content Include="lubricant.ico" />
-    <Content Include="Resources\price-list.png" />
-    <None Include="Resources\logo_reducido.bmp" />
-    <None Include="Resources\Image1.png" />
-    <None Include="Resources\logo_pequeño.bmp" />
-    <None Include="Resources\logo2.png" />
-    <None Include="Resources\logo1.png" />
-    <None Include="Resources\logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

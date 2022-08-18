@@ -323,6 +323,7 @@
             this.Name = "formClientes";
             this.Text = "                                                                                 " +
     "                                 ..:: Clientes ::..";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.formClientes_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dataListadoClientes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

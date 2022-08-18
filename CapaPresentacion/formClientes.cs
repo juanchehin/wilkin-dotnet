@@ -198,6 +198,11 @@ namespace CapaPresentacion
             // this.OcultarColumnas();
             lblTotalClientes.Text = "Total de Registros: " + Convert.ToString(dataListadoClientes.Rows.Count);
         }
+
+        private void formClientes_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 
 }
