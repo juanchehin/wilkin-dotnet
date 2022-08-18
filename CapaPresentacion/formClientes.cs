@@ -174,6 +174,12 @@ namespace CapaPresentacion
             formNuevoTrabajo frm = new formNuevoTrabajo(this.IdCliente);
             frm.Show();
         }
+
+        private void btnHistorial_Click(object sender, EventArgs e)
+        {
+            formHistorial frm = new formHistorial(this.IdCliente);
+            frm.Show();
+        }
     }
 
 }

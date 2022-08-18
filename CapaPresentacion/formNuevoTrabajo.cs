@@ -26,7 +26,6 @@ namespace CapaPresentacion
             foreach (DataRow row in respuesta.Rows)
             {
                 lblApellidosNomb.Text = Convert.ToString(row["Apellidos"]) + " " + Convert.ToString(row["Nombres"]);
-                //lblNombres.Text = Convert.ToString(row["Nombres"]);
             }
         }
 

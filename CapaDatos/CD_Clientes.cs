@@ -1,41 +1,15 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CapaDatos
 {
     public class CD_Clientes
     {
-        private int _IdCliente;
-        private string _Transporte;
-        private string _Titular;
-        private string _Telefono;
-
-        private string _TextoBuscar;
-
-
-        public int IdCliente { get => _IdCliente; set => _IdCliente = value; }
-        public string Transporte { get => _Transporte; set => _Transporte = value; }
-        public string Titular { get => _Titular; set => _Titular = value; }
-        public string Telefono { get => _Telefono; set => _Telefono = value; }
-        public string TextoBuscar { get => _TextoBuscar; set => _TextoBuscar = value; }
-
         //Constructores
         public CD_Clientes()
         {
 
-        }
-
-        public CD_Clientes(int IdCliente, string Transporte, string Titular, string Telefono)
-        {
-            this.IdCliente = IdCliente;
-            this.Transporte = Transporte;
-            this.Titular = Titular;
-            this.Telefono = Telefono;
         }
 
         // ==================================================
@@ -46,7 +20,6 @@ namespace CapaDatos
         MySqlDataReader leer;
         DataTable tabla = new DataTable();
         MySqlCommand comando = new MySqlCommand();
-
 
         public DataTable ListarClientesPaginado(int desde)
         {
@@ -67,6 +40,37 @@ namespace CapaDatos
             tabla.Load(leer);
             conexion.CerrarConexion();
             return tabla;
+
+        }
+
+        public DataSet dameHistoricoClientePaginado(int IdCliente,int desde)
+        {
+
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.CommandText = "bsp_historico_cliente";
+
+            MySqlParameter pIdCliente = new MySqlParameter();
+            pIdCliente.ParameterName = "@pIdCliente";
+            pIdCliente.MySqlDbType = MySqlDbType.Int32;
+            pIdCliente.Value = IdCliente;
+            comando.Parameters.Add(pIdCliente);
+
+            MySqlParameter pDesde = new MySqlParameter();
+            pDesde.ParameterName = "@pDesde";
+            pDesde.MySqlDbType = MySqlDbType.Int32;
+            pDesde.Value = desde;
+            comando.Parameters.Add(pDesde);
+
+            MySqlDataAdapter da = new MySqlDataAdapter(comando);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+
+            comando.Parameters.Clear();
+
+            conexion.CerrarConexion();
+
+            return ds;
 
         }
 
@@ -288,11 +292,11 @@ namespace CapaDatos
                 comando.CommandType = CommandType.StoredProcedure;
                 comando.CommandText = "bsp_eliminar_cliente";
 
-                MySqlParameter pIdCliente = new MySqlParameter();
-                pIdCliente.ParameterName = "@pIdCliente";
-                pIdCliente.MySqlDbType = MySqlDbType.Int32;
-                pIdCliente.Value = Cliente.IdCliente;
-                comando.Parameters.Add(pIdCliente);
+                //MySqlParameter pIdCliente = new MySqlParameter();
+                //pIdCliente.ParameterName = "@pIdCliente";
+                //pIdCliente.MySqlDbType = MySqlDbType.Int32;
+                //pIdCliente.Value = Cliente.IdCliente;
+                //comando.Parameters.Add(pIdCliente);
 
                 //Ejecutamos nuestro comando
 
@@ -320,12 +324,12 @@ namespace CapaDatos
                 comando.CommandType = CommandType.StoredProcedure;
                 comando.CommandText = "bsp_buscar_cliente";
 
-                MySqlParameter pTextoBuscar = new MySqlParameter();
-                pTextoBuscar.ParameterName = "@pTextoBuscar";
-                pTextoBuscar.MySqlDbType = MySqlDbType.VarChar;
-                pTextoBuscar.Size = 30;
-                pTextoBuscar.Value = Cliente.TextoBuscar;
-                comando.Parameters.Add(pTextoBuscar);
+                //MySqlParameter pTextoBuscar = new MySqlParameter();
+                //pTextoBuscar.ParameterName = "@pTextoBuscar";
+                //pTextoBuscar.MySqlDbType = MySqlDbType.VarChar;
+                //pTextoBuscar.Size = 30;
+                //pTextoBuscar.Value = Cliente.TextoBuscar;
+                //comando.Parameters.Add(pTextoBuscar);
 
                 leer = comando.ExecuteReader();
                 tabla.Load(leer);

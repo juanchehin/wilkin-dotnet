@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formNuevoTrabajo));
-            this.lblEditarNuevo = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -74,25 +73,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // lblEditarNuevo
-            // 
-            this.lblEditarNuevo.AutoSize = true;
-            this.lblEditarNuevo.Font = new System.Drawing.Font("Impact", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEditarNuevo.Location = new System.Drawing.Point(171, 3);
-            this.lblEditarNuevo.Name = "lblEditarNuevo";
-            this.lblEditarNuevo.Size = new System.Drawing.Size(165, 66);
-            this.lblEditarNuevo.TabIndex = 16;
-            this.lblEditarNuevo.Text = "Nuevo";
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Impact", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(415, 3);
+            this.label6.Location = new System.Drawing.Point(221, 3);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(197, 66);
+            this.label6.Size = new System.Drawing.Size(357, 66);
             this.label6.TabIndex = 15;
-            this.label6.Text = "Trabajo";
+            this.label6.Text = "Alta de Trabajo";
             // 
             // btnCancelar
             // 
@@ -482,7 +471,6 @@
             this.Controls.Add(this.label13);
             this.Controls.Add(this.lblApellidosNomb);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.lblEditarNuevo);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.groupBox1);
@@ -503,7 +491,6 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Label lblEditarNuevo;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.GroupBox groupBox1;

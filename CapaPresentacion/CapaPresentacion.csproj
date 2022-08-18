@@ -95,6 +95,12 @@
     <Compile Include="formClientes.Designer.cs">
       <DependentUpon>formClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="formHistorial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formHistorial.Designer.cs">
+      <DependentUpon>formHistorial.cs</DependentUpon>
+    </Compile>
     <Compile Include="formInformacion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +129,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="formClientes.resx">
       <DependentUpon>formClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formHistorial.resx">
+      <DependentUpon>formHistorial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formInformacion.resx">
       <DependentUpon>formInformacion.cs</DependentUpon>

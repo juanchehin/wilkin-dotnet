@@ -28,7 +28,7 @@ namespace CapaNegocio
         public static string Eliminar(int IdCliente)
         {
             CD_Clientes Obj = new CD_Clientes();
-            Obj.IdCliente = IdCliente;
+            //Obj.IdCliente = IdCliente;
             return Obj.Eliminar(Obj);
         }
 
@@ -40,6 +40,13 @@ namespace CapaNegocio
             tabla = objetoCD.MostrarCliente(IdCliente);
             return tabla;
         }
+        public DataSet dameHistoricoClientePaginado(int IdCliente,int desde)
+        {
+            DataSet tabla = new DataSet();
+            tabla = objetoCD.dameHistoricoClientePaginado(IdCliente,desde);
+            return tabla;
+        }
+        
 
         public static string Editar(int IdCliente, string Apellidos, string Nombres, string Telefono, string Marca, string Patente, string Correo,
             string Direccion, string Modelo, string Observaciones)
@@ -54,7 +61,7 @@ namespace CapaNegocio
         public DataTable BuscarCliente(string textobuscar)
         {
             CD_Clientes Obj = new CD_Clientes();
-            Obj.TextoBuscar = textobuscar;
+            //Obj.TextoBuscar = textobuscar;
             return Obj.BuscarCliente(Obj);
         }
 
