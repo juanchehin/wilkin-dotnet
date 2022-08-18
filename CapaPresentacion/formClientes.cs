@@ -86,7 +86,7 @@ namespace CapaPresentacion
             formNuevoEditarClientes frm = new formNuevoEditarClientes(this.IdCliente, true);
             frm.MdiParent = this.MdiParent;
             frm.Show();
-            this.Close();
+            //this.Close();
         }
 
         private void dataListadoClientes_SelectionChanged(object sender, EventArgs e)
@@ -104,7 +104,7 @@ namespace CapaPresentacion
             formNuevoEditarClientes frm = new formNuevoEditarClientes(this.IdCliente, false);
             frm.MdiParent = this.MdiParent;
             frm.Show();
-            this.Close();
+            //this.Close();
         }
 
         private void btnEliminar_Click_1(object sender, EventArgs e)
@@ -149,24 +149,32 @@ namespace CapaPresentacion
 
         private void btnSiguiente_Click(object sender, EventArgs e)
         {
-            if(this.desde > Convert.ToInt32(lblTotalClientes))
+            if ((desde + 20) >= Convert.ToInt32(lblTotalClientes))
             {
                 return;
             }
-            this.desde += 20;
 
+            if (desde < 0)
+            {
+                return;
+            }
+
+            this.desde += 20;
             this.ListarClientesPaginado(this.desde);
+
         }
 
         private void btnAnterior_Click(object sender, EventArgs e)
         {
-            if (this.desde <= 0)
+            if (desde <= 0)
             {
+                this.desde = 0;
                 return;
             }
-            this.desde -= 20;
 
+            this.desde -= 20;
             this.ListarClientesPaginado(this.desde);
+
         }
 
         private void btnAgregarTrabajo_Click(object sender, EventArgs e)

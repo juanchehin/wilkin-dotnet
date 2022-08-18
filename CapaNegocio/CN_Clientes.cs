@@ -9,7 +9,7 @@ namespace CapaNegocio
 
         //Método Insertar que llama al método Insertar de la clase DArticulo
         //de la CapaDatos
-        public static string Insertar(string Apellidos, string Nombres, string Telefono, string Marca, string Patente, string Correo,
+        public static string AltaCliente(string Apellidos, string Nombres, string Telefono, string Marca, string Patente, string Correo,
             string Direccion, string Modelo, string Observaciones)
         {
             CD_Clientes Obj = new CD_Clientes();
@@ -48,7 +48,7 @@ namespace CapaNegocio
         }
         
 
-        public static string Editar(int IdCliente, string Apellidos, string Nombres, string Telefono, string Marca, string Patente, string Correo,
+        public static string EditarCliente(int IdCliente, string Apellidos, string Nombres, string Telefono, string Marca, string Patente, string Correo,
             string Direccion, string Modelo, string Observaciones)
         {
             

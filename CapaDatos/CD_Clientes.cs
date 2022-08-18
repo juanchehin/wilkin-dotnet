@@ -23,7 +23,7 @@ namespace CapaDatos
 
         public DataTable ListarClientesPaginado(int desde)
         {
-
+            comando.Parameters.Clear();
             comando.Connection = conexion.AbrirConexion();
             comando.CommandType = CommandType.StoredProcedure;
             comando.CommandText = "bsp_listar_clientes";
@@ -31,7 +31,6 @@ namespace CapaDatos
             MySqlParameter pDesde = new MySqlParameter();
             pDesde.ParameterName = "@pDesde";
             pDesde.MySqlDbType = MySqlDbType.Int32;
-            // pIdProducto.Size = 60;
             pDesde.Value = desde;
             comando.Parameters.Add(pDesde);
 
@@ -105,6 +104,10 @@ namespace CapaDatos
             comando.Parameters.Clear();
             try
             {
+                comando.Connection = conexion.AbrirConexion();
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.CommandText = "bsp_editar_cliente";
+
                 MySqlParameter pIdCliente = new MySqlParameter();
                 pIdCliente.ParameterName = "@pIdCliente";
                 pIdCliente.MySqlDbType = MySqlDbType.Int32;
@@ -175,6 +178,8 @@ namespace CapaDatos
                 comando.Parameters.Add(pObservaciones);
 
                 rpta = comando.ExecuteScalar().ToString() == "Ok" ? "Ok" : "No se edito el Registro";
+
+
 
             }
             catch (Exception ex)

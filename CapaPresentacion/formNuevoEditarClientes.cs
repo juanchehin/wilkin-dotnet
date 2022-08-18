@@ -35,7 +35,7 @@ namespace CapaPresentacion
 
         private void formNuevoEditarClientes_Load(object sender, EventArgs e)
         {
-            this.ActiveControl = txtTransporte;
+            this.ActiveControl = txtApellidos;
             if (this.bandera)
             {
                 lblEditarNuevo.Text = "Nuevo";
@@ -59,63 +59,62 @@ namespace CapaPresentacion
 
             foreach (DataRow row in respuesta.Rows)
             {
-                Console.WriteLine("row es :" + row["Transporte"]);
-
                 IdCliente = Convert.ToInt32(row["IdCliente"]);
-                Transporte = Convert.ToString(row["Transporte"]);
-                Titular = Convert.ToString(row["Titular"]);
-                Telefono = Convert.ToString(row["Telefono"]);
+                txtApellidos.Text = Convert.ToString(row["Apellidos"]);
+                txtNombres.Text = Convert.ToString(row["Nombres"]);
+                txtTelefono.Text = Convert.ToString(row["Telefono"]);
 
+                txtMarca.Text = Convert.ToString(row["Marca"]);
+                txtPatente.Text = Convert.ToString(row["Patente"]);
+                txtCorreo.Text = Convert.ToString(row["Correo"]);
 
+                txtDireccion.Text = Convert.ToString(row["Direccion"]);
+                txtModelo.Text = Convert.ToString(row["Modelo"]);
+                rtbObservaciones.Text = Convert.ToString(row["Observaciones"]);
 
-                txtTransporte.Text = Transporte;
-                txtTitular.Text = Titular;
-                txtTelefono.Text = Telefono;
             }
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    string rpta = "";
-            //    if (this.txtTransporte.Text == string.Empty || this.txtTitular.Text == string.Empty)
-            //    {
-            //        MensajeError("Falta ingresar algunos datos");
-            //    }
-            //    else
-            //    {
-            //        if (this.IsNuevo)
-            //        {
-            //            rpta = CN_Clientes.Insertar(this.txtTitular.Text.Trim(),this.txtTransporte.Text.Trim(), this.txtTelefono.Text.Trim());
-            //        }
-            //        else
-            //        {
-            //            rpta = CN_Clientes.Editar(this.IdCliente, this.txtTitular.Text.Trim(), this.txtTransporte.Text.Trim(), this.txtTelefono.Text.Trim());
-            //        }
+            try
+            {
+                string rpta = "";
+                
+                    if (this.IsNuevo)
+                    {
+                        rpta = CN_Clientes.AltaCliente(this.txtApellidos.Text.Trim(), this.txtNombres.Text.Trim(), this.txtTelefono.Text.Trim()
+                            , this.txtMarca.Text.Trim(),  this.txtPatente.Text.Trim(), this.txtCorreo.Text.Trim()
+                            , this.txtDireccion.Text.Trim(), this.txtModelo.Text.Trim(), this.rtbObservaciones.Text.Trim());
+                    }
+                    else
+                    {
+                        rpta = CN_Clientes.EditarCliente(this.IdCliente, this.txtApellidos.Text.Trim(), this.txtNombres.Text.Trim(), 
+                            this.txtTelefono.Text.Trim(), this.txtMarca.Text.Trim(), this.txtPatente.Text.Trim(), this.txtCorreo.Text.Trim()
+                            , this.txtDireccion.Text.Trim(), this.txtModelo.Text.Trim(), this.rtbObservaciones.Text.Trim());
+                    }
 
-            //        if (rpta.Equals("Ok"))
-            //        {
-            //            if (this.IsNuevo)
-            //            {
-            //                this.MensajeOk("Se Insertó de forma correcta el registro");
-            //            }
-            //            else
-            //            {
-            //                this.MensajeOk("Se Actualizó de forma correcta el registro");
-            //            }
-            //        }
-            //        else
-            //        {
-            //            this.MensajeError(rpta);
-            //        }
+                    if (rpta.Equals("Ok"))
+                    {
+                        if (this.IsNuevo)
+                        {
+                            this.MensajeOk("Se Insertó de forma correcta el registro");
+                        }
+                        else
+                        {
+                            this.MensajeOk("Se Actualizó de forma correcta el registro");
+                        }
+                    }
+                    else
+                    {
+                        this.MensajeError(rpta);
+                    }
 
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message + ex.StackTrace);
-            ////}
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
             this.Close();
         }
         //Mostrar Mensaje de Error
