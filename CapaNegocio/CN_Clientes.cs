@@ -58,11 +58,26 @@ namespace CapaNegocio
             return Obj.BuscarCliente(Obj);
         }
 
-        public static string NuevoTrabajo(int IdCliente,string Aceite, string Filtro, string CorreaDist, string Alternador, string TensorDist, string BombaAgua,
+        public static string NuevoTrabajo(int IdCliente,string Aceite, string Filtro, string CorreaDist, string Alternador, string TensorDist, 
+            string BombaAgua,
             string PastillaFreno, string CambioRef, string CambioBujia, string CambioAceite, string CambioFiltroAceite, string CambioComb,
             string CambioAA, string Kilometros,string Observaciones)
         {
+
+            CorreaDist = CorreaDist != "No" ? "S" : "N";
+            Alternador = Alternador != "No" ? "S" : "N";
+            TensorDist = TensorDist != "No" ? "S" : "N";
+            BombaAgua = BombaAgua != "No" ? "S" : "N";
+            PastillaFreno = PastillaFreno != "No" ? "S" : "N";
+            CambioRef = CambioRef != "No" ? "S" : "N";
+            CambioBujia = CambioBujia != "No" ? "S" : "N";
+            CambioAceite = CambioAceite != "No" ? "S" : "N";
+            CambioFiltroAceite = CambioFiltroAceite != "No" ? "S" : "N";
+            CambioComb = CambioComb != "No" ? "S" : "N";
+            CambioAA = CambioAA != "No" ? "S" : "N";
+
             CD_Clientes Obj = new CD_Clientes();
+
 
             return Obj.NuevoTrabajo(IdCliente,Aceite, Filtro, CorreaDist, Alternador, TensorDist, BombaAgua,
             PastillaFreno, CambioRef, CambioBujia, CambioAceite, CambioFiltroAceite, CambioComb,

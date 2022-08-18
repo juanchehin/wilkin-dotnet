@@ -59,7 +59,54 @@ namespace CapaPresentacion
 
         private void rellenarComboxs()
         {
+            cbAA.Items.Add("Si");
             cbAA.Items.Add("No");
+            cbAA.SelectedItem = "No";
+
+            cbAlternador.Items.Add("Si");
+            cbAlternador.Items.Add("No");
+            cbAlternador.SelectedItem = "No";
+
+            cbComb.Items.Add("Si");
+            cbComb.Items.Add("No");
+            cbComb.SelectedItem = "No";
+
+            cbBombaAgua.Items.Add("Si");
+            cbBombaAgua.Items.Add("No");
+            cbBombaAgua.SelectedItem = "No";
+
+            cbBujia.Items.Add("Si");
+            cbBujia.Items.Add("No");
+            cbBujia.SelectedItem = "No";
+
+            cbCambioAceite.Items.Add("Si");
+            cbCambioAceite.Items.Add("No");
+            cbCambioAceite.SelectedItem = "No";
+
+            cbCorreaDist.Items.Add("Si");
+            cbCorreaDist.Items.Add("No");
+            cbCorreaDist.SelectedItem = "No";
+
+            cbFiltroAceite.Items.Add("Si");
+            cbFiltroAceite.Items.Add("No");
+            cbFiltroAceite.SelectedItem = "No";
+
+            cbCambioAceite.Items.Add("Si");
+            cbCambioAceite.Items.Add("No");
+            cbCambioAceite.SelectedItem = "No";
+
+            cbPastillaFreno.Items.Add("Si");
+            cbPastillaFreno.Items.Add("No");
+            cbPastillaFreno.SelectedItem = "No";
+
+            cbRefrigerante.Items.Add("Si");
+            cbRefrigerante.Items.Add("No");
+            cbRefrigerante.SelectedItem = "No";
+
+            cbTensorDist.Items.Add("Si");
+            cbTensorDist.Items.Add("No");
+            cbTensorDist.SelectedItem = "No";
+
         }
 
         //Mostrar Mensaje de Error

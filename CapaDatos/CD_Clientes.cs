@@ -281,7 +281,6 @@ namespace CapaDatos
         public string Eliminar(CD_Clientes Cliente)
         {
             string rpta = "";
-            // SqlConnection SqlCon = new SqlConnection();
             try
             {
 
@@ -292,7 +291,6 @@ namespace CapaDatos
                 MySqlParameter pIdCliente = new MySqlParameter();
                 pIdCliente.ParameterName = "@pIdCliente";
                 pIdCliente.MySqlDbType = MySqlDbType.Int32;
-                // pIdEmpleado.Size = 60;
                 pIdCliente.Value = Cliente.IdCliente;
                 comando.Parameters.Add(pIdCliente);
 
@@ -379,35 +377,35 @@ namespace CapaDatos
                 MySqlParameter pCorreaDist = new MySqlParameter();
                 pCorreaDist.ParameterName = "@pCorreaDist";
                 pCorreaDist.MySqlDbType = MySqlDbType.VarChar;
-                pCorreaDist.Size = 45;
+                pCorreaDist.Size = 1;
                 pCorreaDist.Value = CorreaDist;
                 comando.Parameters.Add(pCorreaDist);
 
                 MySqlParameter pAlternador = new MySqlParameter();
                 pAlternador.ParameterName = "@pAlternador";
                 pAlternador.MySqlDbType = MySqlDbType.VarChar;
-                pAlternador.Size = 60;
+                pAlternador.Size = 1;
                 pAlternador.Value = Alternador;
                 comando.Parameters.Add(pAlternador);
 
                 MySqlParameter pTensorDist = new MySqlParameter();
                 pTensorDist.ParameterName = "@pTensorDist";
                 pTensorDist.MySqlDbType = MySqlDbType.VarChar;
-                pTensorDist.Size = 250;
+                pTensorDist.Size = 1;
                 pTensorDist.Value = TensorDist;
                 comando.Parameters.Add(pTensorDist);
 
                 MySqlParameter pBombaAgua = new MySqlParameter();
                 pBombaAgua.ParameterName = "@pBombaAgua";
                 pBombaAgua.MySqlDbType = MySqlDbType.VarChar;
-                pBombaAgua.Size = 60;
+                pBombaAgua.Size = 1;
                 pBombaAgua.Value = BombaAgua;
                 comando.Parameters.Add(pBombaAgua);
 
                 MySqlParameter pPastillaFreno = new MySqlParameter();
                 pPastillaFreno.ParameterName = "@pPastillaFreno";
                 pPastillaFreno.MySqlDbType = MySqlDbType.VarChar;
-                pPastillaFreno.Size = 15;
+                pPastillaFreno.Size = 1;
                 pPastillaFreno.Value = PastillaFreno;
                 comando.Parameters.Add(pPastillaFreno);
 
@@ -421,14 +419,14 @@ namespace CapaDatos
                 MySqlParameter pCambioBujia = new MySqlParameter();
                 pCambioBujia.ParameterName = "@pCambioBujia";
                 pCambioBujia.MySqlDbType = MySqlDbType.VarChar;
-                pCambioBujia.Size = 60;
+                pCambioBujia.Size = 1;
                 pCambioBujia.Value = CambioBujia;
                 comando.Parameters.Add(pCambioBujia);
 
                 MySqlParameter pCambioAceite = new MySqlParameter();
                 pCambioAceite.ParameterName = "@pCambioAceite";
                 pCambioAceite.MySqlDbType = MySqlDbType.VarChar;
-                pCambioAceite.Size = 15;
+                pCambioAceite.Size = 1;
                 pCambioAceite.Value = CambioAceite;
                 comando.Parameters.Add(pCambioAceite);
 
@@ -449,14 +447,14 @@ namespace CapaDatos
                 MySqlParameter pCambioAA = new MySqlParameter();
                 pCambioAA.ParameterName = "@pCambioAA";
                 pCambioAA.MySqlDbType = MySqlDbType.VarChar;
-                pCambioAA.Size = 60;
+                pCambioAA.Size = 1;
                 pCambioAA.Value = CambioAA;
                 comando.Parameters.Add(pCambioAA);
 
                 MySqlParameter pKilometros = new MySqlParameter();
                 pKilometros.ParameterName = "@pKilometros";
                 pKilometros.MySqlDbType = MySqlDbType.VarChar;
-                pKilometros.Size = 15;
+                pKilometros.Size = 45;
                 pKilometros.Value = Kilometros;
                 comando.Parameters.Add(pKilometros);
 

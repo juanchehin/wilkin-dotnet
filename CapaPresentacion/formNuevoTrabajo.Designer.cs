@@ -77,26 +77,26 @@
             // lblEditarNuevo
             // 
             this.lblEditarNuevo.AutoSize = true;
-            this.lblEditarNuevo.Font = new System.Drawing.Font("Impact", 55F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEditarNuevo.Location = new System.Drawing.Point(129, 9);
+            this.lblEditarNuevo.Font = new System.Drawing.Font("Impact", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEditarNuevo.Location = new System.Drawing.Point(171, 3);
             this.lblEditarNuevo.Name = "lblEditarNuevo";
-            this.lblEditarNuevo.Size = new System.Drawing.Size(226, 91);
+            this.lblEditarNuevo.Size = new System.Drawing.Size(165, 66);
             this.lblEditarNuevo.TabIndex = 16;
             this.lblEditarNuevo.Text = "Nuevo";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Impact", 55F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(373, 9);
+            this.label6.Font = new System.Drawing.Font("Impact", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(415, 3);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(269, 91);
+            this.label6.Size = new System.Drawing.Size(197, 66);
             this.label6.TabIndex = 15;
             this.label6.Text = "Trabajo";
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(554, 672);
+            this.btnCancelar.Location = new System.Drawing.Point(549, 611);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 18;
@@ -137,7 +137,7 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.groupBox1.Location = new System.Drawing.Point(22, 187);
+            this.groupBox1.Location = new System.Drawing.Point(27, 126);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(766, 479);
             this.groupBox1.TabIndex = 14;
@@ -413,7 +413,7 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(146, 672);
+            this.btnGuardar.Location = new System.Drawing.Point(141, 611);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 12;
@@ -447,7 +447,7 @@
             // 
             this.lblApellidosNomb.AutoSize = true;
             this.lblApellidosNomb.Font = new System.Drawing.Font("Impact", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblApellidosNomb.Location = new System.Drawing.Point(191, 100);
+            this.lblApellidosNomb.Location = new System.Drawing.Point(246, 69);
             this.lblApellidosNomb.Name = "lblApellidosNomb";
             this.lblApellidosNomb.Size = new System.Drawing.Size(228, 48);
             this.lblApellidosNomb.TabIndex = 20;
@@ -457,7 +457,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft PhagsPa", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(29, 157);
+            this.label13.Location = new System.Drawing.Point(638, 105);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(58, 18);
             this.label13.TabIndex = 21;
@@ -467,7 +467,7 @@
             // 
             this.lblFecha.AutoSize = true;
             this.lblFecha.Font = new System.Drawing.Font("Microsoft PhagsPa", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFecha.Location = new System.Drawing.Point(88, 157);
+            this.lblFecha.Location = new System.Drawing.Point(697, 105);
             this.lblFecha.Name = "lblFecha";
             this.lblFecha.Size = new System.Drawing.Size(96, 18);
             this.lblFecha.TabIndex = 22;
@@ -477,7 +477,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(877, 707);
+            this.ClientSize = new System.Drawing.Size(844, 641);
             this.Controls.Add(this.lblFecha);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.lblApellidosNomb);
