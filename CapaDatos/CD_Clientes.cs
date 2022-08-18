@@ -316,20 +316,57 @@ namespace CapaDatos
             return rpta;
         }
 
-        public DataTable BuscarCliente(CD_Clientes Cliente)
+        public DataTable BuscarPatente(string patente)
         {
             try
             {
                 comando.Connection = conexion.AbrirConexion();
                 comando.CommandType = CommandType.StoredProcedure;
-                comando.CommandText = "bsp_buscar_cliente";
+                comando.CommandText = "bsp_buscar_cliente_patente";
 
-                //MySqlParameter pTextoBuscar = new MySqlParameter();
-                //pTextoBuscar.ParameterName = "@pTextoBuscar";
-                //pTextoBuscar.MySqlDbType = MySqlDbType.VarChar;
-                //pTextoBuscar.Size = 30;
-                //pTextoBuscar.Value = Cliente.TextoBuscar;
-                //comando.Parameters.Add(pTextoBuscar);
+                MySqlParameter pPatente = new MySqlParameter();
+                pPatente.ParameterName = "@pPatente";
+                pPatente.MySqlDbType = MySqlDbType.VarChar;
+                pPatente.Size = 30;
+                pPatente.Value = patente;
+                comando.Parameters.Add(pPatente);
+
+                leer = comando.ExecuteReader();
+                tabla.Load(leer);
+                comando.Parameters.Clear();
+                conexion.CerrarConexion();
+
+                // return tabla;
+            }
+            catch (Exception ex)
+            {
+                tabla = null;
+            }
+            return tabla;
+
+        }
+
+        public DataTable BuscarCliente(string apellidos,string nombres)
+        {
+            try
+            {
+                comando.Connection = conexion.AbrirConexion();
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.CommandText = "bsp_buscar_cliente_apellidos_nombres";
+
+                MySqlParameter pApellidos = new MySqlParameter();
+                pApellidos.ParameterName = "@pApellidos";
+                pApellidos.MySqlDbType = MySqlDbType.VarChar;
+                pApellidos.Size = 45;
+                pApellidos.Value = apellidos;
+                comando.Parameters.Add(pApellidos);
+
+                MySqlParameter pNombres = new MySqlParameter();
+                pNombres.ParameterName = "@pNombres";
+                pNombres.MySqlDbType = MySqlDbType.VarChar;
+                pNombres.Size = 45;
+                pNombres.Value = nombres;
+                comando.Parameters.Add(pNombres);
 
                 leer = comando.ExecuteReader();
                 tabla.Load(leer);

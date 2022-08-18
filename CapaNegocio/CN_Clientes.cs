@@ -58,11 +58,18 @@ namespace CapaNegocio
             Direccion, Modelo, Observaciones);
         }
 
-        public DataTable BuscarCliente(string textobuscar)
+        public DataTable BuscarCliente(string apellidos,string nombres)
         {
             CD_Clientes Obj = new CD_Clientes();
-            //Obj.TextoBuscar = textobuscar;
-            return Obj.BuscarCliente(Obj);
+
+            return Obj.BuscarCliente(apellidos,nombres);
+        }
+
+        public DataTable BuscarPatente(string pPatente)
+        {
+            CD_Clientes Obj = new CD_Clientes();
+
+            return Obj.BuscarPatente(pPatente);
         }
 
         public static string NuevoTrabajo(int IdCliente,string Aceite, string Filtro, string CorreaDist, string Alternador, string TensorDist, 

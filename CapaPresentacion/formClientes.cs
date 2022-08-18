@@ -71,7 +71,7 @@ namespace CapaPresentacion
 
         private void BuscarCliente()
         {
-            this.dataListadoClientes.DataSource = objetoCN.BuscarCliente(this.txtBuscar.Text);
+            this.dataListadoClientes.DataSource = objetoCN.BuscarCliente(this.txtBuscarApellido.Text,this.txtBuscarNombres.Text);
             // this.OcultarColumnas();
             lblTotalClientes.Text = "Total de Registros: " + Convert.ToString(dataListadoClientes.Rows.Count);
         }
@@ -179,6 +179,13 @@ namespace CapaPresentacion
         {
             formHistorial frm = new formHistorial(this.IdCliente);
             frm.Show();
+        }
+
+        private void btnBuscarPatente_Click(object sender, EventArgs e)
+        {
+            this.dataListadoClientes.DataSource = objetoCN.BuscarPatente(this.txtPatente.Text);
+            // this.OcultarColumnas();
+            lblTotalClientes.Text = "Total de Registros: " + Convert.ToString(dataListadoClientes.Rows.Count);
         }
     }
 

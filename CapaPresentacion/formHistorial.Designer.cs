@@ -78,7 +78,7 @@
             // lblTotalHistorico
             // 
             this.lblTotalHistorico.AutoSize = true;
-            this.lblTotalHistorico.Location = new System.Drawing.Point(678, 85);
+            this.lblTotalHistorico.Location = new System.Drawing.Point(832, 88);
             this.lblTotalHistorico.Name = "lblTotalHistorico";
             this.lblTotalHistorico.Size = new System.Drawing.Size(68, 13);
             this.lblTotalHistorico.TabIndex = 20;

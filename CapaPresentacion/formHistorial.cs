@@ -36,11 +36,9 @@ namespace CapaPresentacion
             ds = objetoCN.dameHistoricoClientePaginado(IdCliente, desde);
             dataListadoHistorico.DataSource = ds.Tables[0];
             totalHistorico = ds.Tables[1].Rows[0][0].ToString();
-            lblTotalHistorico.Text = totalHistorico;
+            lblTotalHistorico.Text = "Total de Registros: " + totalHistorico;
+            dataListadoHistorico.Columns[0].Visible = false;
 
-            //dataListadoHistorico.DataSource = objetoCN.dameHistoricoClientePaginado(IdCliente,this.desde);
-            //dataListadoHistorico.Columns[0].Visible = false;
-            //lblTotalHistorico.Text = "Total de Registros: " + Convert.ToString(dataListadoHistorico.Rows.Count); // < -- CORREJIR CON TOTAL 
         }
 
         private void btnSiguiente_Click(object sender, EventArgs e)
