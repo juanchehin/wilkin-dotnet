@@ -16,7 +16,6 @@ namespace CapaDatos
         //  Permite devolver todos los clientes activos de la BD
         // ==================================================
         private CD_Conexion conexion = new CD_Conexion();
-
         MySqlDataReader leer;
         DataTable tabla = new DataTable();
         MySqlCommand comando = new MySqlCommand();
@@ -48,7 +47,7 @@ namespace CapaDatos
 
         public DataSet dameHistoricoClientePaginado(int IdCliente,int desde)
         {
-
+            string ds = "";
             comando.Connection = conexion.AbrirConexion();
             comando.CommandType = CommandType.StoredProcedure;
             comando.CommandText = "bsp_historico_cliente";
@@ -65,15 +64,29 @@ namespace CapaDatos
             pDesde.Value = desde;
             comando.Parameters.Add(pDesde);
 
-            MySqlDataAdapter da = new MySqlDataAdapter(comando);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
+            try
+            {
 
-            comando.Parameters.Clear();
+                MySqlDataAdapter da = new MySqlDataAdapter(comando);
+                DataSet ds1 = new DataSet();
+                da.Fill(ds1);
 
-            conexion.CerrarConexion();
+                comando.Parameters.Clear();
 
-            return ds;
+                conexion.CerrarConexion();
+
+                return ds1;
+
+            }
+            catch (Exception ex)
+            {
+                ds = ex.Message;
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+            return null;
 
         }
 
@@ -234,7 +247,7 @@ namespace CapaDatos
                 MySqlParameter pPatente = new MySqlParameter();
                 pPatente.ParameterName = "@pPatente";
                 pPatente.MySqlDbType = MySqlDbType.VarChar;
-                pPatente.Size = 60;
+                pPatente.Size = 250;
                 pPatente.Value = Patente;
                 comando.Parameters.Add(pPatente);
 
@@ -255,7 +268,7 @@ namespace CapaDatos
                 MySqlParameter pTelefono = new MySqlParameter();
                 pTelefono.ParameterName = "@pTelefono";
                 pTelefono.MySqlDbType = MySqlDbType.VarChar;
-                pTelefono.Size = 15;
+                pTelefono.Size = 60;
                 pTelefono.Value = Telefono;
                 comando.Parameters.Add(pTelefono);
 
@@ -273,7 +286,25 @@ namespace CapaDatos
                 pObservaciones.Value = Observaciones;
                 comando.Parameters.Add(pObservaciones);
 
-                rpta = comando.ExecuteScalar().ToString();
+                //rpta = comando.ExecuteScalar().ToString();
+
+                var reader = comando.ExecuteReader();
+
+                
+
+                while (reader.Read())
+                {
+                    if(Convert.ToString(reader[0]) == "Ok")
+                    {
+                        rpta = "Ok";
+                    }
+                    else
+                    {
+                        rpta = "Ocurrio un problema, contactese con el administrador";
+                    }
+                    
+                }
+                reader.Close();
 
 
             }
@@ -388,8 +419,9 @@ namespace CapaDatos
 
         }
 
-        public string NuevoTrabajo(int IdCliente,string Aceite, string Filtro, string CorreaDist, string Alternador, string TensorDist, string BombaAgua,
-            string PastillaFreno, string CambioRef, string CambioBujia, string CambioAceite, string CambioFiltroAceite, string CambioComb,
+        public string NuevoTrabajo(int IdCliente, string Aceite, string FiltroAceite, string FiltroAire, string CorreaDist,
+            string Alternador, string TensorDist, string BombaAgua, string PastillaFreno, string CambioRef,
+            string CambioBujia, string cableBujia, string CambioComb,
             string CambioAA, string Kilometros, string Observaciones)
         {
             string rpta = "";
@@ -402,30 +434,29 @@ namespace CapaDatos
                 MySqlParameter pIdCliente = new MySqlParameter();
                 pIdCliente.ParameterName = "@pIdCliente";
                 pIdCliente .MySqlDbType = MySqlDbType.Int32;
-                pIdCliente .Size = 60;
                 pIdCliente.Value = IdCliente;
                 comando.Parameters.Add(pIdCliente);
-
-                MySqlParameter pKilometros = new MySqlParameter();
-                pKilometros.ParameterName = "@pKilometros";
-                pKilometros.MySqlDbType = MySqlDbType.VarChar;
-                pKilometros.Size = 45;
-                pKilometros.Value = Kilometros;
-                comando.Parameters.Add(pKilometros);
 
                 MySqlParameter pAceite = new MySqlParameter();
                 pAceite.ParameterName = "@pAceite";
                 pAceite.MySqlDbType = MySqlDbType.VarChar;
-                pAceite.Size = 60;
+                pAceite.Size = 250;
                 pAceite.Value = Aceite;
                 comando.Parameters.Add(pAceite);
 
-                MySqlParameter pFiltro = new MySqlParameter();
-                pFiltro.ParameterName = "@pFiltro";
-                pFiltro.MySqlDbType = MySqlDbType.VarChar;
-                pFiltro.Size = 60;
-                pFiltro.Value = Filtro;
-                comando.Parameters.Add(pFiltro);
+                MySqlParameter pFiltroAceite = new MySqlParameter();
+                pFiltroAceite.ParameterName = "@pFiltroAceite";
+                pFiltroAceite.MySqlDbType = MySqlDbType.VarChar;
+                pFiltroAceite.Size = 250;
+                pFiltroAceite.Value = FiltroAceite;
+                comando.Parameters.Add(pFiltroAceite);
+
+                MySqlParameter pFiltroAire = new MySqlParameter();
+                pFiltroAire.ParameterName = "@pFiltroAire";
+                pFiltroAire.MySqlDbType = MySqlDbType.VarChar;
+                pFiltroAire.Size = 250;
+                pFiltroAire.Value = FiltroAire;
+                comando.Parameters.Add(pFiltroAire);
 
                 MySqlParameter pCorreaDist = new MySqlParameter();
                 pCorreaDist.ParameterName = "@pCorreaDist";
@@ -472,23 +503,16 @@ namespace CapaDatos
                 MySqlParameter pCambioBujia = new MySqlParameter();
                 pCambioBujia.ParameterName = "@pCambioBujia";
                 pCambioBujia.MySqlDbType = MySqlDbType.VarChar;
-                pCambioBujia.Size = 1;
+                pCambioBujia.Size = 250;
                 pCambioBujia.Value = CambioBujia;
                 comando.Parameters.Add(pCambioBujia);
 
-                MySqlParameter pCambioAceite = new MySqlParameter();
-                pCambioAceite.ParameterName = "@pCambioAceite";
-                pCambioAceite.MySqlDbType = MySqlDbType.VarChar;
-                pCambioAceite.Size = 45;
-                pCambioAceite.Value = CambioAceite;
-                comando.Parameters.Add(pCambioAceite);
-
-                MySqlParameter pCambioFiltroAceite = new MySqlParameter();
-                pCambioFiltroAceite.ParameterName = "@pCambioFiltroAceite";
-                pCambioFiltroAceite.MySqlDbType = MySqlDbType.VarChar;
-                pCambioFiltroAceite.Size = 1;
-                pCambioFiltroAceite.Value = CambioFiltroAceite;
-                comando.Parameters.Add(pCambioFiltroAceite);
+                MySqlParameter pCableBujia = new MySqlParameter();
+                pCableBujia.ParameterName = "@pCableBujia";
+                pCableBujia.MySqlDbType = MySqlDbType.VarChar;
+                pCableBujia.Size = 250;
+                pCableBujia.Value = cableBujia;
+                comando.Parameters.Add(pCableBujia);
 
                 MySqlParameter pCambioComb = new MySqlParameter();
                 pCambioComb.ParameterName = "@pCambioComb";
@@ -504,6 +528,13 @@ namespace CapaDatos
                 pCambioAA.Value = CambioAA;
                 comando.Parameters.Add(pCambioAA);
 
+                MySqlParameter pKilometros = new MySqlParameter();
+                pKilometros.ParameterName = "@pKilometros";
+                pKilometros.MySqlDbType = MySqlDbType.VarChar;
+                pKilometros.Size = 45;
+                pKilometros.Value = Kilometros;
+                comando.Parameters.Add(pKilometros);
+
                 MySqlParameter pObservaciones = new MySqlParameter();
                 pObservaciones.ParameterName = "@pObservaciones";
                 pObservaciones.MySqlDbType = MySqlDbType.VarChar;
@@ -512,7 +543,6 @@ namespace CapaDatos
                 comando.Parameters.Add(pObservaciones);
 
                 rpta = comando.ExecuteScalar().ToString();
-
 
             }
             catch (Exception ex)

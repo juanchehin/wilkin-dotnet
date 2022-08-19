@@ -147,6 +147,7 @@ namespace CapaPresentacion
             txtBuscarApellido.Clear();
             txtBuscarNombres.Clear();
             txtPatente.Clear();
+            this.desde = 0;
         }
 
         private void btnAyuda_Click(object sender, EventArgs e)

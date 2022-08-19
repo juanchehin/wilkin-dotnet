@@ -72,9 +72,9 @@ namespace CapaNegocio
             return Obj.BuscarPatente(pPatente);
         }
 
-        public static string NuevoTrabajo(int IdCliente,string Aceite, string Filtro, string CorreaDist, string Alternador, string TensorDist, 
-            string BombaAgua,
-            string PastillaFreno, string CambioRef, string CambioBujia, string CambioAceite, string CambioFiltroAceite, string CambioComb,
+        public static string NuevoTrabajo(int IdCliente,string Aceite, string FiltroAceite, string FiltroAire, string CorreaDist, 
+            string Alternador, string TensorDist, string BombaAgua, string PastillaFreno, string CambioRef, 
+            string CambioBujia, string cableBujia, string CambioComb,
             string CambioAA, string Kilometros,string Observaciones)
         {
 
@@ -85,7 +85,6 @@ namespace CapaNegocio
             PastillaFreno = PastillaFreno != "Si" ? "N" : "S";
             CambioRef = CambioRef != "Si" ? "N" : "S";
             CambioBujia = CambioBujia != "Si" ? "N" : "S";
-            CambioFiltroAceite = CambioFiltroAceite != "Si" ? "N" : "S";
 
 
             if (Kilometros == "" || string.IsNullOrEmpty(Kilometros))
@@ -96,9 +95,8 @@ namespace CapaNegocio
             CD_Clientes Obj = new CD_Clientes();
 
 
-            return Obj.NuevoTrabajo(IdCliente,Aceite, Filtro, CorreaDist, Alternador, TensorDist, BombaAgua,
-            PastillaFreno, CambioRef, CambioBujia, CambioAceite, CambioFiltroAceite, CambioComb,
-            CambioAA, Kilometros, Observaciones);
+            return Obj.NuevoTrabajo(IdCliente,Aceite, FiltroAceite, FiltroAire, CorreaDist, Alternador, TensorDist, BombaAgua,
+            PastillaFreno, CambioRef, CambioBujia, cableBujia, CambioComb,CambioAA, Kilometros, Observaciones);
         }
     }
 }

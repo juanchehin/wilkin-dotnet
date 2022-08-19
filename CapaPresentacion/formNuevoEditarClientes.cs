@@ -22,9 +22,6 @@ namespace CapaPresentacion
         bool IsEditar = false;
 
         private int IdCliente;
-        private string Transporte;
-        private string Titular;
-        private string Telefono;
 
         public formNuevoEditarClientes(int parametro, bool IsNuevoEditar)
         {

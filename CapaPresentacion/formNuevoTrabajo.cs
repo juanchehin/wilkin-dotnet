@@ -35,8 +35,9 @@ namespace CapaPresentacion
             {
                 string rpta = "";
 
-                rpta = CN_Clientes.NuevoTrabajo(this.IdCliente,txtAceite.Text.Trim(), txtFiltro.Text.Trim(), cbCorreaDist.Text,cbAlternador.Text, cbTensorDist.Text, cbBombaAgua.Text
-                    , cbPastillaFreno.Text, cbRefrigerante.Text, cbBujia.Text, txtCambioAceite.Text, txtFiltro.Text, txtComb.Text, txtAA.Text, txtKm.Text.Trim(),rtbObservaciones.Text.Trim());                    
+                rpta = CN_Clientes.NuevoTrabajo(
+                    this.IdCliente,txtAceite.Text.Trim(), txtFiltroAire.Text.Trim(), txtFiltroAceite.Text.Trim(), cbCorreaDist.Text,cbAlternador.Text, cbTensorDist.Text, cbBombaAgua.Text
+                    , cbPastillaFreno.Text, cbRefrigerante.Text, txtCambioBujia.Text, txtCableBujia.Text, txtComb.Text, txtAA.Text, txtKm.Text.Trim(),rtbObservaciones.Text.Trim());                    
                 if (rpta.Equals("Ok"))
                 {
                        
@@ -65,10 +66,6 @@ namespace CapaPresentacion
             cbBombaAgua.Items.Add("Si");
             cbBombaAgua.Items.Add("No");
             cbBombaAgua.SelectedItem = "No";
-
-            cbBujia.Items.Add("Si");
-            cbBujia.Items.Add("No");
-            cbBujia.SelectedItem = "No";
 
             cbCorreaDist.Items.Add("Si");
             cbCorreaDist.Items.Add("No");
