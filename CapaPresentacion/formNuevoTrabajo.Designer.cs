@@ -76,10 +76,10 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Impact", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(221, 3);
+            this.label6.Font = new System.Drawing.Font("Impact", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(293, 4);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(357, 66);
+            this.label6.Size = new System.Drawing.Size(262, 48);
             this.label6.TabIndex = 15;
             this.label6.Text = "Alta de Trabajo";
             // 
@@ -140,6 +140,7 @@
             this.txtCableBujia.Name = "txtCableBujia";
             this.txtCableBujia.Size = new System.Drawing.Size(196, 23);
             this.txtCableBujia.TabIndex = 13;
+            this.txtCableBujia.TextChanged += new System.EventHandler(this.txtCableBujia_TextChanged);
             // 
             // label5
             // 
@@ -157,6 +158,7 @@
             this.txtCambioBujia.Name = "txtCambioBujia";
             this.txtCambioBujia.Size = new System.Drawing.Size(196, 23);
             this.txtCambioBujia.TabIndex = 11;
+            this.txtCambioBujia.TextChanged += new System.EventHandler(this.txtCambioBujia_TextChanged);
             // 
             // txtAA
             // 
@@ -164,6 +166,7 @@
             this.txtAA.Name = "txtAA";
             this.txtAA.Size = new System.Drawing.Size(196, 23);
             this.txtAA.TabIndex = 9;
+            this.txtAA.TextChanged += new System.EventHandler(this.txtAA_TextChanged);
             // 
             // txtComb
             // 
@@ -171,6 +174,7 @@
             this.txtComb.Name = "txtComb";
             this.txtComb.Size = new System.Drawing.Size(196, 23);
             this.txtComb.TabIndex = 7;
+            this.txtComb.TextChanged += new System.EventHandler(this.txtComb_TextChanged);
             // 
             // txtFiltroAceite
             // 
@@ -178,6 +182,7 @@
             this.txtFiltroAceite.Name = "txtFiltroAceite";
             this.txtFiltroAceite.Size = new System.Drawing.Size(196, 23);
             this.txtFiltroAceite.TabIndex = 5;
+            this.txtFiltroAceite.TextChanged += new System.EventHandler(this.txtFiltroAceite_TextChanged);
             // 
             // label11
             // 
@@ -273,6 +278,7 @@
             this.txtFiltroAire.Name = "txtFiltroAire";
             this.txtFiltroAire.Size = new System.Drawing.Size(196, 23);
             this.txtFiltroAire.TabIndex = 3;
+            this.txtFiltroAire.TextChanged += new System.EventHandler(this.txtFiltroAire_TextChanged);
             // 
             // label15
             // 
@@ -365,6 +371,7 @@
             this.txtAceite.Name = "txtAceite";
             this.txtAceite.Size = new System.Drawing.Size(196, 23);
             this.txtAceite.TabIndex = 1;
+            this.txtAceite.TextChanged += new System.EventHandler(this.txtAceite_TextChanged);
             // 
             // label1
             // 
@@ -431,10 +438,10 @@
             // lblApellidosNomb
             // 
             this.lblApellidosNomb.AutoSize = true;
-            this.lblApellidosNomb.Font = new System.Drawing.Font("Impact", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblApellidosNomb.Location = new System.Drawing.Point(246, 69);
+            this.lblApellidosNomb.Font = new System.Drawing.Font("Impact", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblApellidosNomb.Location = new System.Drawing.Point(250, 52);
             this.lblApellidosNomb.Name = "lblApellidosNomb";
-            this.lblApellidosNomb.Size = new System.Drawing.Size(228, 48);
+            this.lblApellidosNomb.Size = new System.Drawing.Size(156, 34);
             this.lblApellidosNomb.TabIndex = 20;
             this.lblApellidosNomb.Text = "apellidoNom";
             // 

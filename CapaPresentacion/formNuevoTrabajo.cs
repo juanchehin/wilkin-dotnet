@@ -100,5 +100,61 @@ namespace CapaPresentacion
         {
             this.Close();
         }
+
+        private void txtAceite_TextChanged(object sender, EventArgs e)
+        {
+            if (txtAceite.Text.Length > 200)
+            {
+                MensajeError("Maximo numero de caracteres");
+            }
+        }
+
+        private void txtFiltroAire_TextChanged(object sender, EventArgs e)
+        {
+            if (txtFiltroAire.Text.Length > 200)
+            {
+                MensajeError("Maximo numero de caracteres");
+            }
+        }
+
+        private void txtFiltroAceite_TextChanged(object sender, EventArgs e)
+        {
+            if (txtFiltroAceite.Text.Length > 200)
+            {
+                MensajeError("Maximo numero de caracteres");
+            }
+        }
+
+        private void txtComb_TextChanged(object sender, EventArgs e)
+        {
+            if (txtComb.Text.Length > 200)
+            {
+                MensajeError("Maximo numero de caracteres");
+            }
+        }
+
+        private void txtAA_TextChanged(object sender, EventArgs e)
+        {
+            if (txtAA.Text.Length > 200)
+            {
+                MensajeError("Maximo numero de caracteres");
+            }
+        }
+
+        private void txtCambioBujia_TextChanged(object sender, EventArgs e)
+        {
+            if (txtCambioBujia.Text.Length > 200)
+            {
+                MensajeError("Maximo numero de caracteres");
+            }
+        }
+
+        private void txtCableBujia_TextChanged(object sender, EventArgs e)
+        {
+            if (txtCableBujia.Text.Length > 20)
+            {
+                MensajeError("Maximo numero de caracteres");
+            }
+        }
     }
 }

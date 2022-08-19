@@ -129,5 +129,77 @@ namespace CapaPresentacion
         {
             this.Close();
         }
+
+        private void txtApellidos_TextChanged(object sender, EventArgs e)
+        {
+            if (txtApellidos.Text.Length > 30)
+            {
+                MensajeError("Maximo numero de caracteres");
+            }
+        }
+
+        private void txtNombres_TextChanged(object sender, EventArgs e)
+        {
+            if (txtNombres.Text.Length > 40)
+            {
+                MensajeError("Maximo numero de caracteres");
+            }
+        }
+
+        private void txtTelefono_TextChanged(object sender, EventArgs e)
+        {
+            if (txtTelefono.Text.Length > 15)
+            {
+                MensajeError("Maximo numero de caracteres");
+            }
+        }
+
+        private void txtCorreo_TextChanged(object sender, EventArgs e)
+        {
+            if (txtCorreo.Text.Length > 45)
+            {
+                MensajeError("Maximo numero de caracteres");
+            }
+        }
+
+        private void txtMarca_TextChanged(object sender, EventArgs e)
+        {
+            if (txtMarca.Text.Length > 200)
+            {
+                MensajeError("Maximo numero de caracteres");
+            }
+        }
+
+        private void txtPatente_TextChanged(object sender, EventArgs e)
+        {
+            if (txtPatente.Text.Length > 40)
+            {
+                MensajeError("Maximo numero de caracteres");
+            }
+        }
+
+        private void txtDireccion_TextChanged(object sender, EventArgs e)
+        {
+            if (txtDireccion.Text.Length > 200)
+            {
+                MensajeError("Maximo numero de caracteres");
+            }
+        }
+
+        private void txtModelo_TextChanged(object sender, EventArgs e)
+        {
+            if (txtModelo.Text.Length > 40)
+            {
+                MensajeError("Maximo numero de caracteres");
+            }
+        }
+
+        private void rtbObservaciones_TextChanged(object sender, EventArgs e)
+        {
+            if (rtbObservaciones.Text.Length > 200)
+            {
+                MensajeError("Maximo numero de caracteres");
+            }
+        }
     }
 }
