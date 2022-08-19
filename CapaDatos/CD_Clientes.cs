@@ -406,6 +406,13 @@ namespace CapaDatos
                 pIdCliente.Value = IdCliente;
                 comando.Parameters.Add(pIdCliente);
 
+                MySqlParameter pKilometros = new MySqlParameter();
+                pKilometros.ParameterName = "@pKilometros";
+                pKilometros.MySqlDbType = MySqlDbType.VarChar;
+                pKilometros.Size = 45;
+                pKilometros.Value = Kilometros;
+                comando.Parameters.Add(pKilometros);
+
                 MySqlParameter pAceite = new MySqlParameter();
                 pAceite.ParameterName = "@pAceite";
                 pAceite.MySqlDbType = MySqlDbType.VarChar;
@@ -496,13 +503,6 @@ namespace CapaDatos
                 pCambioAA.Size = 250;
                 pCambioAA.Value = CambioAA;
                 comando.Parameters.Add(pCambioAA);
-
-                MySqlParameter pKilometros = new MySqlParameter();
-                pKilometros.ParameterName = "@pKilometros";
-                pKilometros.MySqlDbType = MySqlDbType.Float;
-                pKilometros.Size = 45;
-                pKilometros.Value = Kilometros;
-                comando.Parameters.Add(pKilometros);
 
                 MySqlParameter pObservaciones = new MySqlParameter();
                 pObservaciones.ParameterName = "@pObservaciones";
