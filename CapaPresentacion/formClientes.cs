@@ -209,6 +209,14 @@ namespace CapaPresentacion
         {
             Application.Exit();
         }
+
+        private void txtPatente_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnBuscarPatente_Click(this, new EventArgs());
+            }
+        }
     }
 
 }

@@ -186,6 +186,7 @@
             this.txtPatente.Name = "txtPatente";
             this.txtPatente.Size = new System.Drawing.Size(136, 20);
             this.txtPatente.TabIndex = 32;
+            this.txtPatente.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPatente_KeyDown);
             // 
             // btnBuscarPatente
             // 

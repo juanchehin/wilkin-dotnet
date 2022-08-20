@@ -288,6 +288,7 @@ namespace CapaDatos
 
                 //rpta = comando.ExecuteScalar().ToString();
 
+                
                 var reader = comando.ExecuteReader();
 
                 
