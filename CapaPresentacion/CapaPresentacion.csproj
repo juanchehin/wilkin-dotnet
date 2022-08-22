@@ -119,6 +119,12 @@
     <Compile Include="formNuevoEditarClientes.Designer.cs">
       <DependentUpon>formNuevoEditarClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="formNuevoEditarTrabajo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formNuevoEditarTrabajo.Designer.cs">
+      <DependentUpon>formNuevoEditarTrabajo.cs</DependentUpon>
+    </Compile>
     <Compile Include="formNuevoTrabajo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,6 +147,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formNuevoEditarClientes.resx">
       <DependentUpon>formNuevoEditarClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formNuevoEditarTrabajo.resx">
+      <DependentUpon>formNuevoEditarTrabajo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formNuevoTrabajo.resx">
       <DependentUpon>formNuevoTrabajo.cs</DependentUpon>

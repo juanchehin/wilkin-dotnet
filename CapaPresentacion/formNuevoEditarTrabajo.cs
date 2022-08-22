@@ -1,13 +1,19 @@
-﻿using System;
+﻿using CapaNegocio;
+using System;
 using System.Data;
 using System.Windows.Forms;
 
-using CapaNegocio;
-
 namespace CapaPresentacion
 {
-    public partial class formNuevoEditarClientes : Form
+    public partial class formNuevoEditarTrabajo : Form
     {
+        public formNuevoEditarTrabajo(int parametro, bool IsNuevoEditar)
+        {
+            InitializeComponent();
+            this.IdCliente = parametro;
+            this.bandera = IsNuevoEditar;
+        }
+
         CN_Clientes objetoCN = new CN_Clientes();
         DataTable respuesta;
         // int parametroActual;
@@ -16,17 +22,11 @@ namespace CapaPresentacion
         bool IsEditar = false;
 
         private int IdCliente;
-
-        public formNuevoEditarClientes(int parametro, bool IsNuevoEditar)
-        {
-            InitializeComponent();
-            this.IdCliente = parametro;
-            this.bandera = IsNuevoEditar;
-        }
+        private int IdTrabajo;
 
         private void formNuevoEditarClientes_Load(object sender, EventArgs e)
         {
-            this.ActiveControl = txtApellidos;
+            this.ActiveControl = txtKm;
             if (this.bandera)
             {
                 lblEditarNuevo.Text = "Nuevo";
@@ -36,70 +36,58 @@ namespace CapaPresentacion
             }
             else
             {
-                lblEditarNuevo.Text = "Ficha";
+                lblEditarNuevo.Text = "Editar";
                 this.IsNuevo = false;
                 this.IsEditar = true;
-                this.MostrarCliente(this.IdCliente);
+                this.dameCliente(this.IdCliente);
             }
         }
 
-        // Carga los valores en los campos de texto del formulario para que se modifiquen los que se desean
-        private void MostrarCliente(int IdCliente)
+        private void dameCliente(int IdCliente)
         {
             respuesta = objetoCN.MostrarCliente(IdCliente);
 
             foreach (DataRow row in respuesta.Rows)
             {
-                IdCliente = Convert.ToInt32(row["IdCliente"]);
-                txtApellidos.Text = Convert.ToString(row["Apellidos"]);
-                txtNombres.Text = Convert.ToString(row["Nombres"]);
-                txtTelefono.Text = Convert.ToString(row["Telefono"]);
-
-                txtMarca.Text = Convert.ToString(row["Marca"]);
-                txtPatente.Text = Convert.ToString(row["Patente"]);
-                txtCorreo.Text = Convert.ToString(row["Correo"]);
-
-                txtDireccion.Text = Convert.ToString(row["Direccion"]);
-                txtModelo.Text = Convert.ToString(row["Modelo"]);
-                rtbObservaciones.Text = Convert.ToString(row["Observaciones"]);
-
+                lblApellidosNomb.Text = Convert.ToString(row["Apellidos"]) + " " + Convert.ToString(row["Nombres"]);
             }
         }
+
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             try
             {
                 string rpta = "";
-                
+
+                if (this.IsNuevo)
+                {
+                    rpta = CN_Clientes.NuevoTrabajo(
+                   this.IdCliente, txtAceite.Text.Trim(), txtFiltroAire.Text.Trim(), txtFiltroAceite.Text.Trim(), cbCorreaDist.Text, cbAlternador.Text, cbTensorDist.Text, cbBombaAgua.Text
+                   , cbPastillaFreno.Text, cbRefrigerante.Text, txtCambioBujia.Text, txtCableBujia.Text, txtComb.Text, txtAA.Text, txtKm.Text.Trim(), rtbObservaciones.Text.Trim());
+
+                }
+                else
+                {
+                    rpta = CN_Clientes.EditarTrabajo(this.IdTrabajo, txtAceite.Text.Trim(), txtFiltroAire.Text.Trim(), txtFiltroAceite.Text.Trim(), cbCorreaDist.Text, cbAlternador.Text, cbTensorDist.Text, cbBombaAgua.Text
+                   , cbPastillaFreno.Text, cbRefrigerante.Text, txtCambioBujia.Text, txtCableBujia.Text, txtComb.Text, txtAA.Text, txtKm.Text.Trim(), rtbObservaciones.Text.Trim());
+                }
+
+                if (rpta.Equals("Ok"))
+                {
                     if (this.IsNuevo)
                     {
-                        rpta = CN_Clientes.AltaCliente(this.txtApellidos.Text.Trim(), this.txtNombres.Text.Trim(), this.txtTelefono.Text.Trim()
-                            , this.txtMarca.Text.Trim(),  this.txtPatente.Text.Trim(), this.txtCorreo.Text.Trim()
-                            , this.txtDireccion.Text.Trim(), this.txtModelo.Text.Trim(), this.rtbObservaciones.Text.Trim());
+                        this.MensajeOk("Se Insertó de forma correcta el registro");
                     }
                     else
                     {
-                        rpta = CN_Clientes.EditarCliente(this.IdCliente, this.txtApellidos.Text.Trim(), this.txtNombres.Text.Trim(), 
-                            this.txtTelefono.Text.Trim(), this.txtMarca.Text.Trim(), this.txtPatente.Text.Trim(), this.txtCorreo.Text.Trim()
-                            , this.txtDireccion.Text.Trim(), this.txtModelo.Text.Trim(), this.rtbObservaciones.Text.Trim());
+                        this.MensajeOk("Se Actualizó de forma correcta el registro");
                     }
-
-                    if (rpta.Equals("Ok"))
-                    {
-                        if (this.IsNuevo)
-                        {
-                            this.MensajeOk("Se Insertó de forma correcta el registro");
-                        }
-                        else
-                        {
-                            this.MensajeOk("Se Actualizó de forma correcta el registro");
-                        }
-                    }
-                    else
-                    {
-                        this.MensajeError(rpta);
-                    }
+                }
+                else
+                {
+                    this.MensajeError(rpta);
+                }
 
             }
             catch (Exception ex)
