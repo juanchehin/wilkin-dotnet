@@ -33,6 +33,7 @@ namespace CapaPresentacion
                 // this.MostrarProducto(this.IdProducto);
                 this.IsNuevo = true;
                 this.IsEditar = false;
+                this.dameCliente(this.IdCliente);
                 rellenarComboxs();
             }
             else

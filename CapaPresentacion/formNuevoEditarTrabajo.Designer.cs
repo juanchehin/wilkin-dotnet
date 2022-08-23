@@ -77,7 +77,7 @@
             // 
             this.lblEditarNuevo.AutoSize = true;
             this.lblEditarNuevo.Font = new System.Drawing.Font("Impact", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEditarNuevo.Location = new System.Drawing.Point(334, 9);
+            this.lblEditarNuevo.Location = new System.Drawing.Point(313, 9);
             this.lblEditarNuevo.Name = "lblEditarNuevo";
             this.lblEditarNuevo.Size = new System.Drawing.Size(154, 48);
             this.lblEditarNuevo.TabIndex = 12;
@@ -97,7 +97,7 @@
             // 
             this.lblApellidosNomb.AutoSize = true;
             this.lblApellidosNomb.Font = new System.Drawing.Font("Impact", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblApellidosNomb.Location = new System.Drawing.Point(271, 68);
+            this.lblApellidosNomb.Location = new System.Drawing.Point(34, 89);
             this.lblApellidosNomb.Name = "lblApellidosNomb";
             this.lblApellidosNomb.Size = new System.Drawing.Size(156, 34);
             this.lblApellidosNomb.TabIndex = 28;

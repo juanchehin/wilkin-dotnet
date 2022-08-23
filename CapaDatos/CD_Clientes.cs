@@ -593,7 +593,7 @@ namespace CapaDatos
                 pFecha.MySqlDbType = MySqlDbType.VarChar;
                 pFecha.Size = 60;
                 pFecha.Value = Fecha;
-                comando.Parameters.Add(Fecha);
+                comando.Parameters.Add(pFecha);
 
                 MySqlParameter pObservaciones = new MySqlParameter();
                 pObservaciones.ParameterName = "@pObservaciones";
