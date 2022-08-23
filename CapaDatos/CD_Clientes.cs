@@ -90,6 +90,27 @@ namespace CapaDatos
 
         }
 
+        public DataTable dameTrabajo(int IdTrabajo)
+        {
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.CommandText = "bsp_dame_trabajo";
+
+            MySqlParameter pIdTrabajo = new MySqlParameter();
+            pIdTrabajo.ParameterName = "@pIdTrabajo";
+            pIdTrabajo.MySqlDbType = MySqlDbType.Int32;
+            pIdTrabajo.Value = IdTrabajo;
+            comando.Parameters.Add(pIdTrabajo);
+
+            leer = comando.ExecuteReader();
+            tabla.Load(leer);
+
+            comando.Parameters.Clear();
+            conexion.CerrarConexion();
+
+            return tabla;
+
+        }
         // devuelve solo 1 cliente de la BD
         public DataTable MostrarCliente(int IdCliente)
         {
@@ -353,6 +374,37 @@ namespace CapaDatos
             return rpta;
         }
 
+        public string EliminarTrabajo(int IdTrabajo)
+        {
+            string rpta = "";
+            try
+            {
+
+                comando.Connection = conexion.AbrirConexion();
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.CommandText = "bsp_baja_trabajo";
+
+                MySqlParameter pIdTrabajo = new MySqlParameter();
+                pIdTrabajo.ParameterName = "@pIdTrabajo";
+                pIdTrabajo.MySqlDbType = MySqlDbType.Int32;
+                pIdTrabajo.Value = IdTrabajo;
+                comando.Parameters.Add(pIdTrabajo);
+
+                rpta = comando.ExecuteNonQuery() == 1 ? "OK" : "NO se Elimino el Registro";
+
+
+            }
+            catch (Exception ex)
+            {
+                rpta = ex.Message;
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+            return rpta;
+        }
+
         public DataTable BuscarPatente(string patente)
         {
             try
@@ -423,7 +475,7 @@ namespace CapaDatos
         public string NuevoTrabajo(int IdCliente, string Aceite, string FiltroAceite, string FiltroAire, string CorreaDist,
             string Alternador, string TensorDist, string BombaAgua, string PastillaFreno, string CambioRef,
             string CambioBujia, string cableBujia, string CambioComb,
-            string CambioAA, string Kilometros, string Observaciones)
+            string CambioAA, string Kilometros,string Fecha,string Observaciones)
         {
             string rpta = "";
             try
@@ -536,6 +588,13 @@ namespace CapaDatos
                 pKilometros.Value = Kilometros;
                 comando.Parameters.Add(pKilometros);
 
+                MySqlParameter pFecha = new MySqlParameter();
+                pFecha.ParameterName = "@pFecha";
+                pFecha.MySqlDbType = MySqlDbType.VarChar;
+                pFecha.Size = 60;
+                pFecha.Value = Fecha;
+                comando.Parameters.Add(Fecha);
+
                 MySqlParameter pObservaciones = new MySqlParameter();
                 pObservaciones.ParameterName = "@pObservaciones";
                 pObservaciones.MySqlDbType = MySqlDbType.VarChar;
@@ -557,5 +616,151 @@ namespace CapaDatos
             return rpta;
 
         }
+
+        public string EditarTrabajo(int IdTrabajo, string Aceite, string FiltroAceite, string FiltroAire, string CorreaDist,
+            string Alternador, string TensorDist, string BombaAgua, string PastillaFreno, string CambioRef,
+            string CambioBujia, string cableBujia, string CambioComb,
+            string CambioAA, string Kilometros,string Fecha, string Observaciones)
+        {
+            string rpta = "";
+            comando.Parameters.Clear();
+            try
+            {
+                comando.Connection = conexion.AbrirConexion();
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.CommandText = "bsp_editar_trabajo";
+
+                MySqlParameter pIdTrabajo = new MySqlParameter();
+                pIdTrabajo.ParameterName = "@pIdTrabajo";
+                pIdTrabajo.MySqlDbType = MySqlDbType.Int32;
+                pIdTrabajo.Value = IdTrabajo;
+                comando.Parameters.Add(pIdTrabajo);
+
+                MySqlParameter pAceite = new MySqlParameter();
+                pAceite.ParameterName = "@pAceite";
+                pAceite.MySqlDbType = MySqlDbType.VarChar;
+                pAceite.Size = 250;
+                pAceite.Value = Aceite;
+                comando.Parameters.Add(pAceite);
+
+                MySqlParameter pFiltroAceite = new MySqlParameter();
+                pFiltroAceite.ParameterName = "@pFiltroAceite";
+                pFiltroAceite.MySqlDbType = MySqlDbType.VarChar;
+                pFiltroAceite.Size = 250;
+                pFiltroAceite.Value = FiltroAceite;
+                comando.Parameters.Add(pFiltroAceite);
+
+                MySqlParameter pFiltroAire = new MySqlParameter();
+                pFiltroAire.ParameterName = "@pFiltroAire";
+                pFiltroAire.MySqlDbType = MySqlDbType.VarChar;
+                pFiltroAire.Size = 250;
+                pFiltroAire.Value = FiltroAire;
+                comando.Parameters.Add(pFiltroAire);
+
+                MySqlParameter pCorreaDist = new MySqlParameter();
+                pCorreaDist.ParameterName = "@pCorreaDist";
+                pCorreaDist.MySqlDbType = MySqlDbType.VarChar;
+                pCorreaDist.Size = 1;
+                pCorreaDist.Value = CorreaDist;
+                comando.Parameters.Add(pCorreaDist);
+
+                MySqlParameter pAlternador = new MySqlParameter();
+                pAlternador.ParameterName = "@pAlternador";
+                pAlternador.MySqlDbType = MySqlDbType.VarChar;
+                pAlternador.Size = 1;
+                pAlternador.Value = Alternador;
+                comando.Parameters.Add(pAlternador);
+
+                MySqlParameter pTensorDist = new MySqlParameter();
+                pTensorDist.ParameterName = "@pTensorDist";
+                pTensorDist.MySqlDbType = MySqlDbType.VarChar;
+                pTensorDist.Size = 1;
+                pTensorDist.Value = TensorDist;
+                comando.Parameters.Add(pTensorDist);
+
+                MySqlParameter pBombaAgua = new MySqlParameter();
+                pBombaAgua.ParameterName = "@pBombaAgua";
+                pBombaAgua.MySqlDbType = MySqlDbType.VarChar;
+                pBombaAgua.Size = 1;
+                pBombaAgua.Value = BombaAgua;
+                comando.Parameters.Add(pBombaAgua);
+
+                MySqlParameter pPastillaFreno = new MySqlParameter();
+                pPastillaFreno.ParameterName = "@pPastillaFreno";
+                pPastillaFreno.MySqlDbType = MySqlDbType.VarChar;
+                pPastillaFreno.Size = 1;
+                pPastillaFreno.Value = PastillaFreno;
+                comando.Parameters.Add(pPastillaFreno);
+
+                MySqlParameter pCambioRef = new MySqlParameter();
+                pCambioRef.ParameterName = "@pCambioRef";
+                pCambioRef.MySqlDbType = MySqlDbType.VarChar;
+                pCambioRef.Size = 1;
+                pCambioRef.Value = CambioRef;
+                comando.Parameters.Add(pCambioRef);
+
+                MySqlParameter pCambioBujia = new MySqlParameter();
+                pCambioBujia.ParameterName = "@pCambioBujia";
+                pCambioBujia.MySqlDbType = MySqlDbType.VarChar;
+                pCambioBujia.Size = 250;
+                pCambioBujia.Value = CambioBujia;
+                comando.Parameters.Add(pCambioBujia);
+
+                MySqlParameter pCableBujia = new MySqlParameter();
+                pCableBujia.ParameterName = "@pCableBujia";
+                pCableBujia.MySqlDbType = MySqlDbType.VarChar;
+                pCableBujia.Size = 250;
+                pCableBujia.Value = cableBujia;
+                comando.Parameters.Add(pCableBujia);
+
+                MySqlParameter pCambioComb = new MySqlParameter();
+                pCambioComb.ParameterName = "@pCambioComb";
+                pCambioComb.MySqlDbType = MySqlDbType.VarChar;
+                pCambioComb.Size = 250;
+                pCambioComb.Value = CambioComb;
+                comando.Parameters.Add(pCambioComb);
+
+                MySqlParameter pCambioAA = new MySqlParameter();
+                pCambioAA.ParameterName = "@pCambioAA";
+                pCambioAA.MySqlDbType = MySqlDbType.VarChar;
+                pCambioAA.Size = 250;
+                pCambioAA.Value = CambioAA;
+                comando.Parameters.Add(pCambioAA);
+
+                MySqlParameter pKilometros = new MySqlParameter();
+                pKilometros.ParameterName = "@pKilometros";
+                pKilometros.MySqlDbType = MySqlDbType.VarChar;
+                pKilometros.Size = 45;
+                pKilometros.Value = Kilometros;
+                comando.Parameters.Add(pKilometros);
+
+                MySqlParameter pFecha = new MySqlParameter();
+                pFecha.ParameterName = "@pFecha";
+                pFecha.MySqlDbType = MySqlDbType.VarChar;
+                pFecha.Size = 60;
+                pFecha.Value = Fecha;
+                comando.Parameters.Add(pFecha);
+
+                MySqlParameter pObservaciones = new MySqlParameter();
+                pObservaciones.ParameterName = "@pObservaciones";
+                pObservaciones.MySqlDbType = MySqlDbType.VarChar;
+                pObservaciones.Size = 250;
+                pObservaciones.Value = Observaciones;
+                comando.Parameters.Add(pObservaciones);
+
+                rpta = comando.ExecuteScalar().ToString();
+
+            }
+            catch (Exception ex)
+            {
+                rpta = ex.Message;
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+            return rpta;
+        }
+
     }
 }

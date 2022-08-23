@@ -7,12 +7,6 @@ namespace CapaPresentacion
 {
     public partial class formNuevoEditarTrabajo : Form
     {
-        public formNuevoEditarTrabajo(int parametro, bool IsNuevoEditar)
-        {
-            InitializeComponent();
-            this.IdCliente = parametro;
-            this.bandera = IsNuevoEditar;
-        }
 
         CN_Clientes objetoCN = new CN_Clientes();
         DataTable respuesta;
@@ -23,24 +17,60 @@ namespace CapaPresentacion
 
         private int IdCliente;
         private int IdTrabajo;
-
-        private void formNuevoEditarClientes_Load(object sender, EventArgs e)
+        public formNuevoEditarTrabajo(int IdCliente, int IdTrabajo, bool IsNuevoEditar)
+        {
+            InitializeComponent();
+            this.IdCliente = IdCliente;
+            this.IdTrabajo = IdTrabajo;
+            this.bandera = IsNuevoEditar;
+        }
+        private void formNuevoEditarTrabajo_Load(object sender, EventArgs e)
         {
             this.ActiveControl = txtKm;
             if (this.bandera)
             {
-                lblEditarNuevo.Text = "Nuevo";
+                lblEditarNuevo.Text = "Nuevo Trabajo";
                 // this.MostrarProducto(this.IdProducto);
                 this.IsNuevo = true;
                 this.IsEditar = false;
+                rellenarComboxs();
             }
             else
             {
-                lblEditarNuevo.Text = "Editar";
+                lblEditarNuevo.Text = "Editar Trabajo";
                 this.IsNuevo = false;
                 this.IsEditar = true;
                 this.dameCliente(this.IdCliente);
+                this.dameTrabajo(this.IdTrabajo);
             }
+        }
+
+        private void rellenarComboxs()
+        {
+            cbAlternador.Items.Add("Si");
+            cbAlternador.Items.Add("No");
+            cbAlternador.SelectedItem = "No";
+
+            cbBombaAgua.Items.Add("Si");
+            cbBombaAgua.Items.Add("No");
+            cbBombaAgua.SelectedItem = "No";
+
+            cbCorreaDist.Items.Add("Si");
+            cbCorreaDist.Items.Add("No");
+            cbCorreaDist.SelectedItem = "No";
+
+            cbPastillaFreno.Items.Add("Si");
+            cbPastillaFreno.Items.Add("No");
+            cbPastillaFreno.SelectedItem = "No";
+
+            cbRefrigerante.Items.Add("Si");
+            cbRefrigerante.Items.Add("No");
+            cbRefrigerante.SelectedItem = "No";
+
+            cbTensorDist.Items.Add("Si");
+            cbTensorDist.Items.Add("No");
+            cbTensorDist.SelectedItem = "No";
+
         }
 
         private void dameCliente(int IdCliente)
@@ -53,24 +83,84 @@ namespace CapaPresentacion
             }
         }
 
+        private void dameTrabajo(int IdTrabajo)
+        {
+            respuesta = objetoCN.dameTrabajo(IdTrabajo);
 
-        private void btnGuardar_Click(object sender, EventArgs e)
+            foreach (DataRow row in respuesta.Rows)
+            {
+                IdTrabajo = Convert.ToInt32(row["IdTrabajo"]);
+
+                txtKm.Text = Convert.ToString(row["Kilometros"]);
+                txtAceite.Text = Convert.ToString(row["Aceite"]);
+                txtFiltroAceite.Text = Convert.ToString(row["FiltroAceite"]);
+
+                txtFiltroAire.Text = Convert.ToString(row["FiltroAire"]);
+                cbCorreaDist.Text = Convert.ToString(row["CorreaDist"]);
+                cbAlternador.Text = Convert.ToString(row["Alternador"]);
+
+                cbTensorDist.Text = Convert.ToString(row["TensorDist"]);
+                cbBombaAgua.Text = Convert.ToString(row["BombaAgua"]);
+                cbPastillaFreno.Text = Convert.ToString(row["PastillaFreno"]);
+
+                cbRefrigerante.Text = Convert.ToString(row["CambioRef"]);
+                txtCambioBujia.Text = Convert.ToString(row["CambioBujia"]);
+                txtCableBujia.Text = Convert.ToString(row["CableBujia"]);
+
+                txtComb.Text = Convert.ToString(row["CambioComb"]);
+                txtAA.Text = Convert.ToString(row["CambioAA"]);
+                dtpFecha.Text = Convert.ToString(row["Fecha"]);
+
+                rtbObservaciones.Text = Convert.ToString(row["Observaciones"]);
+            }
+        }
+
+        //Mostrar Mensaje de Error
+        private void MensajeError(string mensaje)
+        {
+            MessageBox.Show(mensaje, "Wilkin Lubricentro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+        private void MensajeOk(string mensaje)
+        {
+            MessageBox.Show(mensaje, "Wilkin Lubricentro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void rtbObservaciones_TextChanged(object sender, EventArgs e)
+        {
+            if (rtbObservaciones.Text.Length > 200)
+            {
+                MensajeError("Maximo numero de caracteres");
+            }
+        }
+
+        private void btnGuardar_Click_1(object sender, EventArgs e)
         {
             try
             {
                 string rpta = "";
 
+                var añoInicio = dtpFecha.Value.Year;
+                var mesInicio = dtpFecha.Value.Month;
+                var diaInicio = dtpFecha.Value.Day;
+                var Fecha = añoInicio + "-" + mesInicio + "-" + diaInicio;
+
                 if (this.IsNuevo)
                 {
                     rpta = CN_Clientes.NuevoTrabajo(
                    this.IdCliente, txtAceite.Text.Trim(), txtFiltroAire.Text.Trim(), txtFiltroAceite.Text.Trim(), cbCorreaDist.Text, cbAlternador.Text, cbTensorDist.Text, cbBombaAgua.Text
-                   , cbPastillaFreno.Text, cbRefrigerante.Text, txtCambioBujia.Text, txtCableBujia.Text, txtComb.Text, txtAA.Text, txtKm.Text.Trim(), rtbObservaciones.Text.Trim());
+                   , cbPastillaFreno.Text, cbRefrigerante.Text, txtCambioBujia.Text, txtCableBujia.Text, txtComb.Text, txtAA.Text, txtKm.Text.Trim(), Fecha, rtbObservaciones.Text.Trim());
 
                 }
                 else
                 {
                     rpta = CN_Clientes.EditarTrabajo(this.IdTrabajo, txtAceite.Text.Trim(), txtFiltroAire.Text.Trim(), txtFiltroAceite.Text.Trim(), cbCorreaDist.Text, cbAlternador.Text, cbTensorDist.Text, cbBombaAgua.Text
-                   , cbPastillaFreno.Text, cbRefrigerante.Text, txtCambioBujia.Text, txtCableBujia.Text, txtComb.Text, txtAA.Text, txtKm.Text.Trim(), rtbObservaciones.Text.Trim());
+                   , cbPastillaFreno.Text, cbRefrigerante.Text, txtCambioBujia.Text, txtCableBujia.Text, txtComb.Text, txtAA.Text, txtKm.Text.Trim(), Fecha, rtbObservaciones.Text.Trim());
                 }
 
                 if (rpta.Equals("Ok"))
@@ -95,93 +185,6 @@ namespace CapaPresentacion
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
             this.Close();
-        }
-        //Mostrar Mensaje de Error
-        private void MensajeError(string mensaje)
-        {
-            MessageBox.Show(mensaje, "Wilkin Lubricentro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-        private void MensajeOk(string mensaje)
-        {
-            MessageBox.Show(mensaje, "Wilkin Lubricentro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-        }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void txtApellidos_TextChanged(object sender, EventArgs e)
-        {
-            if (txtApellidos.Text.Length > 30)
-            {
-                MensajeError("Maximo numero de caracteres");
-            }
-        }
-
-        private void txtNombres_TextChanged(object sender, EventArgs e)
-        {
-            if (txtNombres.Text.Length > 40)
-            {
-                MensajeError("Maximo numero de caracteres");
-            }
-        }
-
-        private void txtTelefono_TextChanged(object sender, EventArgs e)
-        {
-            if (txtTelefono.Text.Length > 15)
-            {
-                MensajeError("Maximo numero de caracteres");
-            }
-        }
-
-        private void txtCorreo_TextChanged(object sender, EventArgs e)
-        {
-            if (txtCorreo.Text.Length > 45)
-            {
-                MensajeError("Maximo numero de caracteres");
-            }
-        }
-
-        private void txtMarca_TextChanged(object sender, EventArgs e)
-        {
-            if (txtMarca.Text.Length > 200)
-            {
-                MensajeError("Maximo numero de caracteres");
-            }
-        }
-
-        private void txtPatente_TextChanged(object sender, EventArgs e)
-        {
-            if (txtPatente.Text.Length > 40)
-            {
-                MensajeError("Maximo numero de caracteres");
-            }
-        }
-
-        private void txtDireccion_TextChanged(object sender, EventArgs e)
-        {
-            if (txtDireccion.Text.Length > 200)
-            {
-                MensajeError("Maximo numero de caracteres");
-            }
-        }
-
-        private void txtModelo_TextChanged(object sender, EventArgs e)
-        {
-            if (txtModelo.Text.Length > 40)
-            {
-                MensajeError("Maximo numero de caracteres");
-            }
-        }
-
-        private void rtbObservaciones_TextChanged(object sender, EventArgs e)
-        {
-            if (rtbObservaciones.Text.Length > 200)
-            {
-                MensajeError("Maximo numero de caracteres");
-            }
         }
     }
 }

@@ -188,7 +188,7 @@ namespace CapaPresentacion
 
         private void btnAgregarTrabajo_Click(object sender, EventArgs e)
         {
-            formNuevoTrabajo frm = new formNuevoTrabajo(this.IdCliente);
+            formNuevoEditarTrabajo frm = new formNuevoEditarTrabajo(this.IdCliente,0,true);
             frm.Show();
         }
 

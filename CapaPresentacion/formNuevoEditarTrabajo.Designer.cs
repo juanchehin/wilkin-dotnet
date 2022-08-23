@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formNuevoEditarTrabajo));
             this.lblEditarNuevo = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.lblApellidosNomb = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -68,7 +67,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -78,21 +77,11 @@
             // 
             this.lblEditarNuevo.AutoSize = true;
             this.lblEditarNuevo.Font = new System.Drawing.Font("Impact", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEditarNuevo.Location = new System.Drawing.Point(201, 20);
+            this.lblEditarNuevo.Location = new System.Drawing.Point(334, 9);
             this.lblEditarNuevo.Name = "lblEditarNuevo";
             this.lblEditarNuevo.Size = new System.Drawing.Size(154, 48);
             this.lblEditarNuevo.TabIndex = 12;
             this.lblEditarNuevo.Text = "variable";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Impact", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(379, 20);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(144, 48);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "Trabajo";
             // 
             // label13
             // 
@@ -445,6 +434,7 @@
             this.btnGuardar.TabIndex = 25;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click_1);
             // 
             // pictureBox1
             // 
@@ -457,19 +447,19 @@
             this.pictureBox1.TabIndex = 23;
             this.pictureBox1.TabStop = false;
             // 
-            // dateTimePicker1
+            // dtpFecha
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(597, 103);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 30;
+            this.dtpFecha.Location = new System.Drawing.Point(597, 103);
+            this.dtpFecha.Name = "dtpFecha";
+            this.dtpFecha.Size = new System.Drawing.Size(200, 20);
+            this.dtpFecha.TabIndex = 30;
             // 
             // formNuevoEditarTrabajo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(865, 659);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dtpFecha);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.lblApellidosNomb);
             this.Controls.Add(this.pictureBox2);
@@ -478,11 +468,11 @@
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblEditarNuevo);
-            this.Controls.Add(this.label6);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "formNuevoEditarTrabajo";
             this.Text = "                                                                                 " +
     "        ...::: Mantenimiento Trabajo :::...";
+            this.Load += new System.EventHandler(this.formNuevoEditarTrabajo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -495,7 +485,6 @@
         #endregion
 
         private System.Windows.Forms.Label lblEditarNuevo;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label lblApellidosNomb;
         private System.Windows.Forms.PictureBox pictureBox2;
@@ -533,6 +522,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpFecha;
     }
 }

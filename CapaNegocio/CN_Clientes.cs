@@ -32,6 +32,20 @@ namespace CapaNegocio
             return Obj.EliminarCliente(IdCliente);
         }
 
+        public static string EliminarTrabajo(int IdTrabajo)
+        {
+            CD_Clientes Obj = new CD_Clientes();
+
+            return Obj.EliminarTrabajo(IdTrabajo);
+        }
+
+        public DataTable dameTrabajo(int IdTrabajo)
+        {
+            DataTable tabla = new DataTable();
+            tabla = objetoCD.dameTrabajo(IdTrabajo);
+            return tabla;
+        }
+
         // Devuelve solo un Cliente
         public DataTable MostrarCliente(int IdCliente)
         {
@@ -58,6 +72,32 @@ namespace CapaNegocio
             Direccion, Modelo, Observaciones);
         }
 
+        public static string EditarTrabajo(int IdTrabajo, string Aceite, string FiltroAceite, string FiltroAire, string CorreaDist,
+            string Alternador, string TensorDist, string BombaAgua, string PastillaFreno, string CambioRef,
+            string CambioBujia, string cableBujia, string CambioComb,
+            string CambioAA, string Kilometros,string Fecha, string Observaciones)
+        {
+
+            CorreaDist = CorreaDist != "Si" ? "N" : "S";
+            Alternador = Alternador != "Si" ? "N" : "S";
+            TensorDist = TensorDist != "Si" ? "N" : "S";
+            BombaAgua = BombaAgua != "Si" ? "N" : "S";
+            PastillaFreno = PastillaFreno != "Si" ? "N" : "S";
+            CambioRef = CambioRef != "Si" ? "N" : "S";
+            CambioBujia = CambioBujia != "Si" ? "N" : "S";
+
+
+            if (Kilometros == "" || string.IsNullOrEmpty(Kilometros))
+            {
+                Kilometros = "0";
+            }
+
+            CD_Clientes Obj = new CD_Clientes();
+
+            return Obj.EditarTrabajo(IdTrabajo, Aceite, FiltroAceite, FiltroAire, CorreaDist, Alternador, TensorDist, BombaAgua,
+            PastillaFreno, CambioRef, CambioBujia, cableBujia, CambioComb, CambioAA, Kilometros,Fecha, Observaciones);
+        }
+
         public DataTable BuscarCliente(string apellidos,string nombres)
         {
             CD_Clientes Obj = new CD_Clientes();
@@ -75,7 +115,7 @@ namespace CapaNegocio
         public static string NuevoTrabajo(int IdCliente,string Aceite, string FiltroAceite, string FiltroAire, string CorreaDist, 
             string Alternador, string TensorDist, string BombaAgua, string PastillaFreno, string CambioRef, 
             string CambioBujia, string cableBujia, string CambioComb,
-            string CambioAA, string Kilometros,string Observaciones)
+            string CambioAA, string Kilometros,string Fecha, string Observaciones)
         {
 
             CorreaDist = CorreaDist != "Si" ? "N" : "S";
@@ -96,7 +136,7 @@ namespace CapaNegocio
 
 
             return Obj.NuevoTrabajo(IdCliente,Aceite, FiltroAceite, FiltroAire, CorreaDist, Alternador, TensorDist, BombaAgua,
-            PastillaFreno, CambioRef, CambioBujia, cableBujia, CambioComb,CambioAA, Kilometros, Observaciones);
+            PastillaFreno, CambioRef, CambioBujia, cableBujia, CambioComb,CambioAA, Kilometros,Fecha, Observaciones);
         }
     }
 }

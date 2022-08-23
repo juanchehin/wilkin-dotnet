@@ -11,6 +11,7 @@ namespace CapaPresentacion
         DataTable respuesta;
         int desde = 0;
         int IdCliente;
+        int IdTrabajo;
         DataSet ds = new DataSet();
         string totalHistorico;
 
@@ -38,7 +39,6 @@ namespace CapaPresentacion
             totalHistorico = ds.Tables[1].Rows[0][0].ToString();
             lblTotalHistorico.Text = "Total de Registros: " + totalHistorico;
             dataListadoHistorico.Columns[0].Visible = false;
-
         }
 
         private void btnSiguiente_Click(object sender, EventArgs e)
@@ -69,6 +69,56 @@ namespace CapaPresentacion
             this.desde -= 20;
             this.dameHistoricoClientePaginado(IdCliente,this.desde);
 
+        }
+
+        private void btnEditarTrabajo_Click(object sender, EventArgs e)
+        {
+            formNuevoEditarTrabajo frm = new formNuevoEditarTrabajo(this.IdCliente,this.IdTrabajo, false);
+            frm.MdiParent = this.MdiParent;
+            frm.Show();
+        }
+
+        private void dataListadoHistorico_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataListadoHistorico.SelectedCells.Count > 0)
+            {
+                int selectedrowindex = dataListadoHistorico.SelectedCells[0].RowIndex;
+                DataGridViewRow selectedRow = dataListadoHistorico.Rows[selectedrowindex];
+                this.IdTrabajo = Convert.ToInt32(selectedRow.Cells["IdTrabajo"].Value);
+            }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult Opcion;
+                Opcion = MessageBox.Show("Realmente Desea Eliminar el trabajo", "Wilkin Lubricentro", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                if (Opcion == DialogResult.OK)
+                {
+                    CN_Clientes.EliminarTrabajo(this.IdTrabajo);
+                    dameHistoricoClientePaginado(this.IdCliente,0);
+                    MensajeOk("Se elimino de forma correcta el registro");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void MensajeOk(string mensaje)
+        {
+            MessageBox.Show(mensaje, "Wilkin Lubricentro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        }
+
+
+        //Mostrar Mensaje de Error
+        private void MensajeError(string mensaje)
+        {
+            MessageBox.Show(mensaje, "Wilkin Lubricentro", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

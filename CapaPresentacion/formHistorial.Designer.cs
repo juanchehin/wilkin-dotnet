@@ -34,6 +34,8 @@
             this.btnAnterior = new System.Windows.Forms.Button();
             this.btnSiguiente = new System.Windows.Forms.Button();
             this.lblTotalHistorico = new System.Windows.Forms.Label();
+            this.btnEditarTrabajo = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataListadoHistorico)).BeginInit();
             this.SuspendLayout();
             // 
@@ -43,9 +45,9 @@
             this.lblHistorico.Font = new System.Drawing.Font("Impact", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHistorico.Location = new System.Drawing.Point(36, 9);
             this.lblHistorico.Name = "lblHistorico";
-            this.lblHistorico.Size = new System.Drawing.Size(192, 48);
+            this.lblHistorico.Size = new System.Drawing.Size(191, 48);
             this.lblHistorico.TabIndex = 16;
-            this.lblHistorico.Text = "HIstorico : ";
+            this.lblHistorico.Text = "Historico : ";
             // 
             // dataListadoHistorico
             // 
@@ -54,6 +56,7 @@
             this.dataListadoHistorico.Name = "dataListadoHistorico";
             this.dataListadoHistorico.Size = new System.Drawing.Size(921, 384);
             this.dataListadoHistorico.TabIndex = 17;
+            this.dataListadoHistorico.SelectionChanged += new System.EventHandler(this.dataListadoHistorico_SelectionChanged);
             // 
             // btnAnterior
             // 
@@ -84,11 +87,33 @@
             this.lblTotalHistorico.TabIndex = 20;
             this.lblTotalHistorico.Text = "totalHistorico";
             // 
+            // btnEditarTrabajo
+            // 
+            this.btnEditarTrabajo.Location = new System.Drawing.Point(45, 75);
+            this.btnEditarTrabajo.Name = "btnEditarTrabajo";
+            this.btnEditarTrabajo.Size = new System.Drawing.Size(134, 23);
+            this.btnEditarTrabajo.TabIndex = 40;
+            this.btnEditarTrabajo.Text = "Editar trabajo";
+            this.btnEditarTrabajo.UseVisualStyleBackColor = true;
+            this.btnEditarTrabajo.Click += new System.EventHandler(this.btnEditarTrabajo_Click);
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Location = new System.Drawing.Point(185, 75);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(134, 23);
+            this.btnEliminar.TabIndex = 41;
+            this.btnEliminar.Text = "Eliminar trabajo";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
             // formHistorial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(998, 529);
+            this.Controls.Add(this.btnEliminar);
+            this.Controls.Add(this.btnEditarTrabajo);
             this.Controls.Add(this.lblTotalHistorico);
             this.Controls.Add(this.btnSiguiente);
             this.Controls.Add(this.btnAnterior);
@@ -110,5 +135,7 @@
         private System.Windows.Forms.Button btnAnterior;
         private System.Windows.Forms.Button btnSiguiente;
         private System.Windows.Forms.Label lblTotalHistorico;
+        private System.Windows.Forms.Button btnEditarTrabajo;
+        private System.Windows.Forms.Button btnEliminar;
     }
 }

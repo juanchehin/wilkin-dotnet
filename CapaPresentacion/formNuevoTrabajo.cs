@@ -35,19 +35,19 @@ namespace CapaPresentacion
             {
                 string rpta = "";
 
-                rpta = CN_Clientes.NuevoTrabajo(
-                    this.IdCliente,txtAceite.Text.Trim(), txtFiltroAire.Text.Trim(), txtFiltroAceite.Text.Trim(), cbCorreaDist.Text,cbAlternador.Text, cbTensorDist.Text, cbBombaAgua.Text
-                    , cbPastillaFreno.Text, cbRefrigerante.Text, txtCambioBujia.Text, txtCableBujia.Text, txtComb.Text, txtAA.Text, txtKm.Text.Trim(),rtbObservaciones.Text.Trim());                    
-                if (rpta.Equals("Ok"))
-                {
+                //rpta = CN_Clientes.NuevoTrabajo(
+                //    this.IdCliente,txtAceite.Text.Trim(), txtFiltroAire.Text.Trim(), txtFiltroAceite.Text.Trim(), cbCorreaDist.Text,cbAlternador.Text, cbTensorDist.Text, cbBombaAgua.Text
+                //    , cbPastillaFreno.Text, cbRefrigerante.Text, txtCambioBujia.Text, txtCableBujia.Text, txtComb.Text, txtAA.Text, txtKm.Text.Trim(),rtbObservaciones.Text.Trim());                    
+                //if (rpta.Equals("Ok"))
+                //{
                        
-                    this.MensajeOk("Se Insertó de forma correcta el registro");
+                //    this.MensajeOk("Se Insertó de forma correcta el registro");
                         
-                }
-                else
-                {
-                    this.MensajeError(rpta);
-                }
+                //}
+                //else
+                //{
+                //    this.MensajeError(rpta);
+                //}
 
             }
             catch (Exception ex)
