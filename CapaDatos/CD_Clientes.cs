@@ -92,23 +92,31 @@ namespace CapaDatos
 
         public DataTable dameTrabajo(int IdTrabajo)
         {
-            comando.Connection = conexion.AbrirConexion();
-            comando.CommandType = CommandType.StoredProcedure;
-            comando.CommandText = "bsp_dame_trabajo";
+            try
+            {
+                comando.Connection = conexion.AbrirConexion();
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.CommandText = "bsp_dame_trabajo";
 
-            MySqlParameter pIdTrabajo = new MySqlParameter();
-            pIdTrabajo.ParameterName = "@pIdTrabajo";
-            pIdTrabajo.MySqlDbType = MySqlDbType.Int32;
-            pIdTrabajo.Value = IdTrabajo;
-            comando.Parameters.Add(pIdTrabajo);
+                MySqlParameter pIdTrabajo = new MySqlParameter();
+                pIdTrabajo.ParameterName = "@pIdTrabajo";
+                pIdTrabajo.MySqlDbType = MySqlDbType.Int32;
+                pIdTrabajo.Value = IdTrabajo;
+                comando.Parameters.Add(pIdTrabajo);
 
-            leer = comando.ExecuteReader();
-            tabla.Load(leer);
+                leer = comando.ExecuteReader();
+                tabla.Load(leer);
 
-            comando.Parameters.Clear();
-            conexion.CerrarConexion();
+                comando.Parameters.Clear();
+                conexion.CerrarConexion();
 
-            return tabla;
+                return tabla;
+            }
+            catch(Exception e)
+            {
+                return null;
+            }
+            
 
         }
         // devuelve solo 1 cliente de la BD

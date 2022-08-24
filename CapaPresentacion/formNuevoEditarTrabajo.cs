@@ -7,10 +7,8 @@ namespace CapaPresentacion
 {
     public partial class formNuevoEditarTrabajo : Form
     {
-
         CN_Clientes objetoCN = new CN_Clientes();
         DataTable respuesta;
-        // int parametroActual;
         bool bandera;
         bool IsNuevo = false;
         bool IsEditar = false;
@@ -88,32 +86,41 @@ namespace CapaPresentacion
         {
             respuesta = objetoCN.dameTrabajo(IdTrabajo);
 
-            foreach (DataRow row in respuesta.Rows)
+            if(respuesta != null)
             {
-                IdTrabajo = Convert.ToInt32(row["IdTrabajo"]);
+                foreach (DataRow row in respuesta.Rows)
+                {
+                    IdTrabajo = Convert.ToInt32(row["IdTrabajo"]);
 
-                txtKm.Text = Convert.ToString(row["Kilometros"]);
-                txtAceite.Text = Convert.ToString(row["Aceite"]);
-                txtFiltroAceite.Text = Convert.ToString(row["FiltroAceite"]);
+                    txtKm.Text = Convert.ToString(row["Kilometros"]);
+                    txtAceite.Text = Convert.ToString(row["Aceite"]);
+                    txtFiltroAceite.Text = Convert.ToString(row["FiltroAceite"]);
 
-                txtFiltroAire.Text = Convert.ToString(row["FiltroAire"]);
-                cbCorreaDist.Text = Convert.ToString(row["CorreaDist"]);
-                cbAlternador.Text = Convert.ToString(row["Alternador"]);
+                    txtFiltroAire.Text = Convert.ToString(row["FiltroAire"]);
+                    cbCorreaDist.Text = Convert.ToString(row["CorreaDist"]);
+                    cbAlternador.Text = Convert.ToString(row["Alternador"]);
 
-                cbTensorDist.Text = Convert.ToString(row["TensorDist"]);
-                cbBombaAgua.Text = Convert.ToString(row["BombaAgua"]);
-                cbPastillaFreno.Text = Convert.ToString(row["PastillaFreno"]);
+                    cbTensorDist.Text = Convert.ToString(row["TensorDist"]);
+                    cbBombaAgua.Text = Convert.ToString(row["BombaAgua"]);
+                    cbPastillaFreno.Text = Convert.ToString(row["PastillaFreno"]);
 
-                cbRefrigerante.Text = Convert.ToString(row["CambioRef"]);
-                txtCambioBujia.Text = Convert.ToString(row["CambioBujia"]);
-                txtCableBujia.Text = Convert.ToString(row["CableBujia"]);
+                    cbRefrigerante.Text = Convert.ToString(row["CambioRef"]);
+                    txtCambioBujia.Text = Convert.ToString(row["CambioBujia"]);
+                    txtCableBujia.Text = Convert.ToString(row["CableBujia"]);
 
-                txtComb.Text = Convert.ToString(row["CambioComb"]);
-                txtAA.Text = Convert.ToString(row["CambioAA"]);
-                dtpFecha.Text = Convert.ToString(row["Fecha"]);
+                    txtComb.Text = Convert.ToString(row["CambioComb"]);
+                    txtAA.Text = Convert.ToString(row["CambioAA"]);
+                    dtpFecha.Text = Convert.ToString(row["Fecha"]);
 
-                rtbObservaciones.Text = Convert.ToString(row["Observaciones"]);
+                    rtbObservaciones.Text = Convert.ToString(row["Observaciones"]);
+                }
             }
+            else
+            {
+                MensajeError("Ocurrio un problema.Contactese con el administrador");
+                this.Close();
+            }         
+
         }
 
         //Mostrar Mensaje de Error
