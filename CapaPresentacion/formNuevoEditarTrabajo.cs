@@ -171,7 +171,7 @@ namespace CapaPresentacion
                 if (this.IsNuevo)
                 {
                     rpta = CN_Clientes.NuevoTrabajo(
-                   this.IdCliente, txtAceite.Text.Trim(), txtFiltroAire.Text.Trim(), txtFiltroAceite.Text.Trim(), cbCorreaDist.Text, cbAlternador.Text, cbTensorDist.Text, cbBombaAgua.Text
+                   this.IdCliente, txtAceite.Text.Trim(), txtFiltroAceite.Text.Trim(), txtFiltroAire.Text.Trim(), cbCorreaDist.Text, cbAlternador.Text, cbTensorDist.Text, cbBombaAgua.Text
                    , cbPastillaFreno.Text, cbRefrigerante.Text, txtCambioBujia.Text, txtCableBujia.Text, txtComb.Text, txtAA.Text, txtKm.Text.Trim(), Fecha, rtbObservaciones.Text.Trim());
 
                 }
@@ -202,6 +202,11 @@ namespace CapaPresentacion
             {
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
+            this.Close();
+        }
+
+        private void btnCancelar_Click_1(object sender, EventArgs e)
+        {
             this.Close();
         }
     }

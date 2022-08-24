@@ -84,8 +84,6 @@ namespace CapaNegocio
             BombaAgua = BombaAgua != "Si" ? "N" : "S";
             PastillaFreno = PastillaFreno != "Si" ? "N" : "S";
             CambioRef = CambioRef != "Si" ? "N" : "S";
-            CambioBujia = CambioBujia != "Si" ? "N" : "S";
-
 
             if (Kilometros == "" || string.IsNullOrEmpty(Kilometros))
             {
@@ -124,7 +122,6 @@ namespace CapaNegocio
             BombaAgua = BombaAgua != "Si" ? "N" : "S";
             PastillaFreno = PastillaFreno != "Si" ? "N" : "S";
             CambioRef = CambioRef != "Si" ? "N" : "S";
-            CambioBujia = CambioBujia != "Si" ? "N" : "S";
 
 
             if (Kilometros == "" || string.IsNullOrEmpty(Kilometros))
