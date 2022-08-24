@@ -34,7 +34,6 @@ namespace CapaPresentacion
             totalClientes = ds.Tables[1].Rows[0][0].ToString();
             lblTotalClientes.Text = "Total de Registros: " + totalClientes;
             dataListadoClientes.Columns[0].Visible = false;
-
         }
 
 

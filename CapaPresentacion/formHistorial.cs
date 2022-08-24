@@ -34,11 +34,19 @@ namespace CapaPresentacion
 
         public void dameHistoricoClientePaginado(int IdCliente,int desde)
         {
-            ds = objetoCN.dameHistoricoClientePaginado(IdCliente, desde);
-            dataListadoHistorico.DataSource = ds.Tables[0];
-            totalHistorico = ds.Tables[1].Rows[0][0].ToString();
-            lblTotalHistorico.Text = "Total de Registros: " + totalHistorico;
-            dataListadoHistorico.Columns[0].Visible = false;
+            try
+            {
+                ds = objetoCN.dameHistoricoClientePaginado(IdCliente, desde);
+                dataListadoHistorico.DataSource = ds.Tables[0];
+                totalHistorico = ds.Tables[1].Rows[0][0].ToString();
+                lblTotalHistorico.Text = "Total de Registros: " + totalHistorico;
+                dataListadoHistorico.Columns[0].Visible = false;
+            }
+            catch(Exception e)
+            {
+                MensajeError("El cliente no posee trabajos cargados");
+                return;
+            }
         }
 
         private void btnSiguiente_Click(object sender, EventArgs e)
@@ -80,7 +88,7 @@ namespace CapaPresentacion
 
         private void dataListadoHistorico_SelectionChanged(object sender, EventArgs e)
         {
-            if (dataListadoHistorico.SelectedCells.Count > 0)
+            if (dataListadoHistorico.SelectedCells.Count > 0 && Convert.ToInt32(totalHistorico) > 0)
             {
                 int selectedrowindex = dataListadoHistorico.SelectedCells[0].RowIndex;
                 DataGridViewRow selectedRow = dataListadoHistorico.Rows[selectedrowindex];
