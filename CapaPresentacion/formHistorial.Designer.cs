@@ -52,6 +52,8 @@
             // 
             // dataListadoHistorico
             // 
+            this.dataListadoHistorico.AllowUserToAddRows = false;
+            this.dataListadoHistorico.AllowUserToDeleteRows = false;
             this.dataListadoHistorico.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataListadoHistorico.Location = new System.Drawing.Point(44, 104);
             this.dataListadoHistorico.Name = "dataListadoHistorico";

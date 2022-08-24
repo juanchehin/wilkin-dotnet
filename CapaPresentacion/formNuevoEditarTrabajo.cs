@@ -40,6 +40,7 @@ namespace CapaPresentacion
                 lblEditarNuevo.Text = "Editar Trabajo";
                 this.IsNuevo = false;
                 this.IsEditar = true;
+                rellenarComboxs();
                 this.dameCliente(this.IdCliente);
                 this.dameTrabajo(this.IdTrabajo);
             }
@@ -105,19 +106,17 @@ namespace CapaPresentacion
                     txtKm.Text = Convert.ToString(row["Kilometros"]);
                     txtAceite.Text = Convert.ToString(row["Aceite"]);
                     txtFiltroAceite.Text = Convert.ToString(row["FiltroAceite"]);
-
                     txtFiltroAire.Text = Convert.ToString(row["FiltroAire"]);
-                    cbCorreaDist.Text = Convert.ToString(row["CorreaDist"]);
-                    cbAlternador.Text = Convert.ToString(row["Alternador"]);
 
-                    cbTensorDist.Text = Convert.ToString(row["TensorDist"]);
-                    cbBombaAgua.Text = Convert.ToString(row["BombaAgua"]);
-                    cbPastillaFreno.Text = Convert.ToString(row["PastillaFreno"]);
+                    cbCorreaDist.Text = Convert.ToString(row["CorreaDist"]) != "S" ? "No" : "Si";
+                    cbAlternador.Text = Convert.ToString(row["Alternador"]) != "S" ? "No" : "Si";
+                    cbTensorDist.Text = Convert.ToString(row["TensorDist"]) != "S" ? "No" : "Si";
+                    cbBombaAgua.Text = Convert.ToString(row["BombaAgua"]) != "S" ? "No" : "Si";
+                    cbPastillaFreno.Text = Convert.ToString(row["PastillaFreno"]) != "S" ? "No" : "Si";
+                    cbRefrigerante.Text = Convert.ToString(row["CambioRef"]) != "S" ? "No" : "Si"; ;
 
-                    cbRefrigerante.Text = Convert.ToString(row["CambioRef"]);
                     txtCambioBujia.Text = Convert.ToString(row["CambioBujia"]);
                     txtCableBujia.Text = Convert.ToString(row["CableBujia"]);
-
                     txtComb.Text = Convert.ToString(row["CambioComb"]);
                     txtAA.Text = Convert.ToString(row["CambioAA"]);
                     dtpFecha.Text = Convert.ToString(row["Fecha"]);
