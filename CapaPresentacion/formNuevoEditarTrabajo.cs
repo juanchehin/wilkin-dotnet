@@ -9,6 +9,7 @@ namespace CapaPresentacion
     {
         CN_Clientes objetoCN = new CN_Clientes();
         DataTable respuesta;
+        string resp1;
         bool bandera;
         bool IsNuevo = false;
         bool IsEditar = false;
@@ -86,7 +87,16 @@ namespace CapaPresentacion
         {
             respuesta = objetoCN.dameTrabajo(IdTrabajo);
 
-            if(respuesta != null)
+            if(respuesta.Rows[0][0] is string)
+            {
+                this.resp1 = (String)respuesta.Rows[0][0];
+            }
+            else
+            {
+                this.resp1 = "";
+            }
+
+            if (respuesta != null && this.resp1 != "Trabajo inexistente")
             {
                 foreach (DataRow row in respuesta.Rows)
                 {

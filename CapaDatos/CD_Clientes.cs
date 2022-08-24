@@ -92,25 +92,27 @@ namespace CapaDatos
 
         public DataTable dameTrabajo(int IdTrabajo)
         {
+            DataTable tabla1 = new DataTable();
             try
             {
+                comando.Parameters.Clear();
                 comando.Connection = conexion.AbrirConexion();
                 comando.CommandType = CommandType.StoredProcedure;
                 comando.CommandText = "bsp_dame_trabajo";
 
                 MySqlParameter pIdTrabajo = new MySqlParameter();
                 pIdTrabajo.ParameterName = "@pIdTrabajo";
-                pIdTrabajo.MySqlDbType = MySqlDbType.Int32;
+                pIdTrabajo.MySqlDbType = MySqlDbType.Int64;
                 pIdTrabajo.Value = IdTrabajo;
                 comando.Parameters.Add(pIdTrabajo);
 
                 leer = comando.ExecuteReader();
-                tabla.Load(leer);
+                tabla1.Load(leer);
 
                 comando.Parameters.Clear();
                 conexion.CerrarConexion();
 
-                return tabla;
+                return tabla1;
             }
             catch(Exception e)
             {
