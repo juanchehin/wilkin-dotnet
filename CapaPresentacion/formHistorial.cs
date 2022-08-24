@@ -128,5 +128,10 @@ namespace CapaPresentacion
         {
             MessageBox.Show(mensaje, "Wilkin Lubricentro", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+
+        private void btnRefrescar_Click(object sender, EventArgs e)
+        {
+            dameHistoricoClientePaginado(IdCliente, 0);
+        }
     }
 }

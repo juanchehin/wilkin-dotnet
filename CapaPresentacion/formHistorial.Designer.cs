@@ -36,6 +36,7 @@
             this.lblTotalHistorico = new System.Windows.Forms.Label();
             this.btnEditarTrabajo = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnRefrescar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataListadoHistorico)).BeginInit();
             this.SuspendLayout();
             // 
@@ -107,11 +108,22 @@
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
+            // btnRefrescar
+            // 
+            this.btnRefrescar.Image = global::CapaPresentacion.Properties.Resources.refresh;
+            this.btnRefrescar.Location = new System.Drawing.Point(934, 46);
+            this.btnRefrescar.Name = "btnRefrescar";
+            this.btnRefrescar.Size = new System.Drawing.Size(31, 32);
+            this.btnRefrescar.TabIndex = 42;
+            this.btnRefrescar.UseVisualStyleBackColor = true;
+            this.btnRefrescar.Click += new System.EventHandler(this.btnRefrescar_Click);
+            // 
             // formHistorial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(998, 529);
+            this.Controls.Add(this.btnRefrescar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnEditarTrabajo);
             this.Controls.Add(this.lblTotalHistorico);
@@ -137,5 +149,6 @@
         private System.Windows.Forms.Label lblTotalHistorico;
         private System.Windows.Forms.Button btnEditarTrabajo;
         private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnRefrescar;
     }
 }

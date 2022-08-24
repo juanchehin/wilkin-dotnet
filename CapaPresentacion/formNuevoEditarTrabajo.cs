@@ -177,7 +177,7 @@ namespace CapaPresentacion
                 }
                 else
                 {
-                    rpta = CN_Clientes.EditarTrabajo(this.IdTrabajo, txtAceite.Text.Trim(), txtFiltroAire.Text.Trim(), txtFiltroAceite.Text.Trim(), cbCorreaDist.Text, cbAlternador.Text, cbTensorDist.Text, cbBombaAgua.Text
+                    rpta = CN_Clientes.EditarTrabajo(this.IdTrabajo, txtAceite.Text.Trim(), txtFiltroAceite.Text.Trim(), txtFiltroAire.Text.Trim(), cbCorreaDist.Text, cbAlternador.Text, cbTensorDist.Text, cbBombaAgua.Text
                    , cbPastillaFreno.Text, cbRefrigerante.Text, txtCambioBujia.Text, txtCableBujia.Text, txtComb.Text, txtAA.Text, txtKm.Text.Trim(), Fecha, rtbObservaciones.Text.Trim());
                 }
 
